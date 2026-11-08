@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invention of the Internet – How "LO" Became a Revolution That Connected 5 Billion People | Stories Online</title>
+    
+    <!-- ============ Hreflang Tags ============ -->
+    <link rel="canonical" href="https://storydz.com/en/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="ar" href="https://storydz.com/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="en" href="https://storydz.com/en/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="fr" href="https://storydz.com/fr/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="x-default" href="https://storydz.com/sport-war/internet-invention.html">
+
+    <meta name="description" content="It began with a crash. 'LO' — the first internet message ever sent — was meant to be 'LOGIN.' The system crashed after two letters. From that fragment, a network was born that now connects 5 billion people. The untold story of ARPANET, the Cold War, and the invention that changed everything.">
+    <meta name="keywords" content="internet invention, ARPANET, first internet message LO, Tim Berners-Lee, World Wide Web, Vint Cerf, Bob Kahn, TCP/IP, history of internet, DARPA, packet switching, Paul Baran, Ray Tomlinson email, Mosaic browser, CERN, Cold War technology">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3M0BESS50R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3M0BESS50R');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9289437351842226" crossorigin="anonymous"></script>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: linear-gradient(145deg, #e8edf2 0%, #d0d8e0 100%); 
+            color: #1a2a3a; 
+            line-height: 1.9; 
+        }
+        .top-bar { 
+            background: #0a1a2a; 
+            color: #a0c0e0; 
+            padding: 10px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            font-size: 0.9rem; 
+        }
+        .lang-switcher a {
+            color: #a0c0e0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            margin: 0 4px;
+        }
+        .lang-switcher a.active { color: #d9a13b; font-weight: bold; }
+        .lang-switcher a:hover { color: #d9a13b !important; transform: translateY(-2px); }
+        .social-links a { 
+            color: #a0c0e0; 
+            margin: 0 8px; 
+            font-size: 1.1rem; 
+            transition: 0.3s; 
+            display: inline-block; 
+        }
+        .social-links a:hover { color: #d9a13b; transform: translateY(-2px); }
+        .main-header { 
+            background: linear-gradient(135deg, #f0f4f8, #e0e8f0); 
+            padding: 20px 30px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
+            border-bottom: 1px solid #b0c0d0; 
+        }
+        .logo-area h1 { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, #2a4a6a, #0a1a2a); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+        }
+        .logo-area p { color: #3a5a7a; margin-top: 5px; }
+        nav { 
+            margin-top: 15px; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            border-top: 1px solid #b0c0d0; 
+            padding-top: 18px; 
+        }
+        nav a { 
+            text-decoration: none; 
+            background: #d8e0e8; 
+            padding: 8px 18px; 
+            border-radius: 40px; 
+            font-weight: 600; 
+            color: #1a2a3a; 
+            border: 1px solid #a0b0c0; 
+            font-size: 0.9rem; 
+            transition: 0.3s;
+        }
+        nav a:hover { background: #d9a13b; color: white; transform: translateY(-2px); }
+        .story-container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            background: white; 
+            border-radius: 32px; 
+            box-shadow: 0 25px 45px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+        }
+        .story-header { 
+            background: linear-gradient(135deg, #0a1a3a, #1a3a6a, #2a5a9a); 
+            padding: 50px 40px; 
+            color: #d0e0ff; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        .story-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100,180,255,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .story-header h1 { 
+            font-size: 2.3rem; 
+            font-weight: 900; 
+            margin-bottom: 15px; 
+            position: relative;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        }
+        .story-meta { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            font-size: 0.9rem; 
+            position: relative;
+            color: #d0e0ff;
+        }
+        .story-meta i { margin-right: 5px; }
+        .story-content { padding: 45px 50px; }
+        .story-content h2 { 
+            color: #1a3a6a; 
+            font-size: 1.8rem; 
+            margin: 45px 0 20px 0; 
+            border-left: 6px solid #d9a13b; 
+            padding-left: 20px; 
+        }
+        .story-content h3 { 
+            color: #2a4a7a; 
+            font-size: 1.4rem; 
+            margin: 35px 0 15px 0; 
+        }
+        .story-content p { 
+            font-size: 1.1rem; 
+            margin-bottom: 22px; 
+            text-align: justify; 
+            line-height: 1.95;
+        }
+        
+        /* ============ صندوق الحقائق السريعة ============ */
+        .quick-facts {
+            background: linear-gradient(135deg, #f0f4fa, #e0ecf8);
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border: 2px solid #2a5a9a;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .quick-facts .fact-item {
+            text-align: center;
+            padding: 10px;
+        }
+        .quick-facts .fact-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a3a6a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .quick-facts .fact-value {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0a1a3a;
+            margin-top: 4px;
+        }
+        
+        /* ============ جدول المحتويات ============ */
+        #table-of-contents {
+            background: #f5f7fa;
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border: 1px solid #c0d0e0;
+        }
+        #table-of-contents h2 {
+            color: #1a3a6a;
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            border: none;
+            padding: 0;
+        }
+        #table-of-contents ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 30px;
+        }
+        #table-of-contents li {
+            margin-bottom: 8px;
+            break-inside: avoid;
+        }
+        #table-of-contents a {
+            text-decoration: none;
+            color: #2a4a7a;
+            font-weight: 500;
+            transition: 0.25s;
+            display: block;
+            padding: 5px 0;
+        }
+        #table-of-contents a:hover {
+            color: #d9a13b;
+            padding-left: 8px;
+            font-weight: 700;
+        }
+        .toc-h3 { padding-left: 20px; font-size: 0.9rem; }
+        @media (max-width: 600px) {
+            #table-of-contents ul { columns: 1; }
+        }
+        
+        /* ============ حقيقة صادمة ============ */
+        .shocking-fact {
+            background: linear-gradient(135deg, #0a1a3a, #1a3a6a);
+            color: #d0e0ff;
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin: 35px 0;
+            text-align: center;
+            border: 2px solid #4a8adc;
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: #2a5a9a; }
+            50% { border-color: #6aacff; }
+        }
+        .shocking-fact .fact-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            display: block;
+            color: #6aacff;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+        }
+        
+        .highlight-box { 
+            background: #f0f4f8; 
+            padding: 25px; 
+            border-radius: 24px; 
+            border-left: 6px solid #1a3a6a; 
+            margin: 30px 0; 
+        }
+        .dark-box { 
+            background: #0a1a3a; 
+            color: #d0e0f0; 
+            padding: 28px; 
+            border-radius: 24px; 
+            margin: 30px 0; 
+            text-align: center; 
+            border: 1px solid #2a5a9a;
+        }
+        
+        /* ============ الإعلانات ============ */
+        .ad-container { 
+            background: #f0f4f8; 
+            padding: 20px; 
+            margin: 40px 0; 
+            text-align: center; 
+            border-radius: 20px; 
+            overflow: hidden;
+            clear: both;
+            border: 1px dashed #b0c0d0;
+        }
+        .ad-label {
+            font-size: 11px;
+            color: #7a8a9a;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .quote-box { 
+            background: #0a1a3a; 
+            color: #d0e0f0; 
+            padding: 30px; 
+            border-radius: 24px; 
+            margin: 30px 0; 
+            text-align: center; 
+            font-size: 1.2rem; 
+            font-weight: 500; 
+            font-style: italic;
+            position: relative;
+            border: 1px solid #2a5a9a;
+        }
+        .quote-box::before {
+            content: '\201C';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: #d9a13b;
+            font-style: normal;
+        }
+        
+        .battle-stats { 
+            display: flex; 
+            justify-content: space-around; 
+            background: linear-gradient(135deg, #e0e8f0, #f0f4f8); 
+            border-radius: 28px; 
+            padding: 30px 25px; 
+            margin: 35px 0; 
+            text-align: center; 
+            flex-wrap: wrap;
+            border: 1px solid #b0c0d0;
+        }
+        .stat-item { flex: 1; min-width: 120px; }
+        .stat-number { 
+            font-size: 2.2rem; 
+            font-weight: 900; 
+            color: #1a3a6a;
+            text-shadow: 1px 1px 2px rgba(42,90,154,0.3);
+        }
+        .stat-label { font-weight: 600; color: #2a4a7a; }
+        
+        /* ============ المصادر ============ */
+        .sources-box {
+            background: #f5f7fa;
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin: 35px 0;
+            border: 1px solid #c0d0e0;
+        }
+        .sources-box h2 {
+            color: #1a3a6a;
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            border: none;
+            padding: 0;
+        }
+        .sources-box ol { padding-left: 25px; }
+        .sources-box li { margin-bottom: 10px; font-size: 1rem; }
+        
+        .social-share { 
+            margin: 40px 0 20px; 
+            padding-top: 25px; 
+            border-top: 1px solid #b0c0d0; 
+            text-align: center; 
+        }
+        .social-share a { 
+            font-size: 1.8rem; 
+            margin: 0 12px; 
+            color: #2a4a6a; 
+            display: inline-block; 
+            transition: 0.3s; 
+        }
+        .social-share a:hover { color: #d9a13b; transform: scale(1.2); }
+        .back-home { 
+            display: inline-block; 
+            background: #d9a13b; 
+            color: #2c2412; 
+            padding: 12px 28px; 
+            border-radius: 40px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            margin-top: 20px; 
+            transition: 0.3s; 
+        }
+        .back-home:hover { background: #c08020; color: white; transform: translateY(-2px); }
+        .next-story { 
+            background: #e0e8f0; 
+            padding: 20px; 
+            border-radius: 24px; 
+            margin-top: 40px; 
+            text-align: center; 
+        }
+        footer { 
+            background: #0a1a2a; 
+            color: #a0c0e0; 
+            padding: 40px 25px 25px; 
+            margin-top: 50px; 
+            border-radius: 40px 40px 0 0; 
+        }
+        .footer-content { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            gap: 30px; 
+        }
+        .footer-col h4 { 
+            font-size: 1.2rem; 
+            margin-bottom: 12px; 
+            border-left: 3px solid #d9a13b; 
+            padding-left: 12px; 
+        }
+        .footer-col a { 
+            display: block; 
+            color: #a0c0e0; 
+            text-decoration: none; 
+            margin-bottom: 8px; 
+            transition: 0.2s;
+        }
+        .footer-col a:hover { color: #d9a13b; padding-left: 5px; }
+        .social-footer { display: flex; gap: 18px; margin-top: 12px; flex-wrap: wrap; }
+        .social-footer a { font-size: 1.5rem; color: #d9a13b; transition: 0.2s; }
+        .social-footer a:hover { color: #f0c040; transform: scale(1.1); }
+        .copyright { 
+            text-align: center; 
+            margin-top: 35px; 
+            padding-top: 18px; 
+            border-top: 1px solid #1a3a4a; 
+            font-size: 0.8rem; 
+        }
+        
+        @media (max-width: 700px) { 
+            .story-content { padding: 25px; } 
+            .story-header h1 { font-size: 1.6rem; } 
+            .story-header { padding: 35px 25px; }
+            .logo-area h1 { font-size: 1.5rem; } 
+            .top-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .story-meta { gap: 10px; }
+            .quote-box::before { font-size: 2.5rem; top: -10px; }
+        }
+    </style>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Ezoic -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Invention of the Internet – How 'LO' Became a Revolution That Connected 5 Billion People">
+    <meta property="og:description" content="It began with a crash. 'LO' — the first internet message ever sent — was meant to be 'LOGIN.' The system crashed after two letters. The untold story of the invention that changed everything.">
+    <meta property="og:image" content="https://storydz.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Invention of the Internet – How 'LO' Became a Revolution">
+    <meta name="twitter:description" content="It began with a crash. 'LO' was meant to be 'LOGIN.' The system crashed after two letters. The untold story of the invention that changed everything.">
+    <meta name="twitter:image" content="https://storydz.com/og-image.png">
+</head>
+<body>
+
+<!-- ============ Top Bar ============ -->
+<div class="top-bar">
+    <div><i class="fas fa-scroll" aria-hidden="true"></i> storydz.com | Authentic Historical Documentaries</div>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="lang-switcher" style="display: flex; gap: 8px;">
+            <a href="../../sport-war/internet-invention.html" title="العربية" aria-label="Arabic">🇸🇦</a>
+            <a href="internet-invention.html" class="active" title="English" aria-label="English">🇬🇧</a>
+            <a href="../../fr/sport-war/internet-invention.html" title="Français" aria-label="French">🇫🇷</a>
+        </div>
+        <div class="social-links" role="navigation" aria-label="Social media">
+            <a href="https://www.facebook.com/profile.php?id=61563124457159" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/dig_it_al_16/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://t.me/africano180" target="_blank" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+            <a href="https://youtube.com/@alilo-zd4ib" target="_blank" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@afri.cano4" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://wa.me/213664830275" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="main-header">
+    <div class="logo-area">
+        <h1>📖 Stories Online | storydz.com</h1>
+        <p>Deepest historical narratives • Wars • Assassinations • Revolutions & Timeless Mysteries</p>
+    </div>
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="../../index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+        <a href="../../about.html"><i class="fas fa-info-circle" aria-hidden="true"></i> About</a>
+        <a href="../../contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a>
+        <a href="../../privacy.html"><i class="fas fa-lock" aria-hidden="true"></i> Privacy</a>
+    </nav>
+</header>
+
+<!-- ============ Story Container ============ -->
+<div class="story-container">
+    <div class="story-header">
+        <h1>🌐 The Invention of the Internet</h1>
+        <h2 style="font-size: 1.3rem; margin-top: 5px; color: #d0e0ff;">How Two Letters — "LO" — Started a Revolution</h2>
+        <div class="story-meta">
+            <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> 1969 – 1989</span>
+            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> USA → Worldwide</span>
+            <span><i class="fas fa-clock" aria-hidden="true"></i> Reading time: 12 minutes</span>
+            <span><i class="fas fa-globe" aria-hidden="true"></i> The network that connected humanity</span>
+        </div>
+    </div>
+    
+    <div class="story-content">
+        
+        <!-- ============ صندوق الحقائق السريعة ============ -->
+        <div class="quick-facts">
+            <div class="fact-item">
+                <div class="fact-label"><i class="fas fa-calendar-alt"></i> First Message</div>
+                <div class="fact-value">October 29, 1969</div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-label"><i class="fas fa-keyboard"></i> First Word</div>
+                <div class="fact-value">"LO" (meant to be LOGIN)</div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-label"><i class="fas fa-users"></i> Key Inventors</div>
+                <div class="fact-value">Cerf, Kahn, Berners-Lee</div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-label"><i class="fas fa-globe"></i> Users Today</div>
+                <div class="fact-value">5+ Billion</div>
+            </div>
+        </div>
+        
+        <!-- ============ جدول المحتويات ============ -->
+        <div id="table-of-contents">
+            <h2>📑 Table of Contents</h2>
+            <ul id="toc-list">
+                <!-- يتم ملؤه تلقائياً عبر JavaScript -->
+            </ul>
+        </div>
+
+        <!-- ============ حقيقة صادمة تجذب الانتباه ============ -->
+        <div class="shocking-fact">
+            <span class="fact-number">LO</span>
+            <p style="font-size: 1.2rem; margin-top: 10px;"><strong>That was the first internet message ever sent. It was supposed to be "LOGIN." The system crashed after two letters.</strong></p>
+            <p style="margin-top: 5px;">From that broken beginning, a network was born that now connects 5 billion people — half the planet. The greatest invention since the printing press began with a crash.</p>
+        </div>
+
+        <!-- ============ المقدمة (Hook) ============ -->
+        <p>On <strong>October 29, 1969</strong>, at 10:30 PM, in a computer lab at the University of California, Los Angeles (UCLA), a young programmer named <strong>Charley Kline</strong> sat at a terminal. He was attempting to send a message to another computer at the <strong>Stanford Research Institute</strong>, 500 kilometers away. The message was supposed to be the word <strong>"LOGIN."</strong> Kline typed "L." Stanford received it. He typed "O." Stanford received it. He typed "G" — and the system crashed. The first internet message in human history was <strong>"LO"</strong> — a fragment, an accident, a beginning. That network was called <strong>ARPANET</strong> — a project funded by the U.S. Department of Defense's Advanced Research Projects Agency. It was designed to connect university and research computers, allowing scientists to share data and computing power. Nobody — not the engineers who built it, not the military that funded it, not the scientists who used it — imagined that this fragile network would one day connect <strong>5 billion people</strong>, reshape the global economy, transform human communication, and fundamentally change what it means to be alive in the 21st century. This is the story of how the internet was invented — not by a single genius, but by thousands of engineers, scientists, and dreamers over decades. And it all began with a crash.</p>
+        
+        <!-- ============ خلاصة ============ -->
+        <div class="highlight-box">
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+            <p style="margin-top: 10px;"><strong>Summary:</strong> The internet evolved from ARPANET, a U.S. military-funded network established in 1969. Key milestones: the first ARPANET message ("LO") sent on October 29, 1969; the invention of email by Ray Tomlinson (1971); TCP/IP protocols developed by Vint Cerf and Bob Kahn (1974), becoming the standard in 1983; the Domain Name System (DNS, 1983); the invention of the World Wide Web by Sir Tim Berners-Lee at CERN (1989), including the first web browser (1990); the release of Mosaic, the first graphical web browser (1993); the rise of search engines (Google, 1998), social media, smartphones, and the modern internet. <strong>Important distinction:</strong> The internet is the physical network of connected computers. The World Wide Web is a service — a system of linked documents — that runs on the internet.</p>
+        </div>
+        
+        <h2>🖥️ ARPANET: The Cold War Baby (1969)</h2>
+        <p>ARPANET was born out of Cold War anxiety. The U.S. Department of Defense wanted a communication network that could survive a nuclear strike — a <strong>decentralized system</strong> with no central hub that could be destroyed. The solution was <strong>"packet switching"</strong> — a revolutionary concept developed independently by <strong>Paul Baran</strong> at the RAND Corporation in the United States and <strong>Donald Davies</strong> at the UK National Physical Laboratory in the early 1960s. Instead of sending messages as continuous streams (like a phone call), packet switching breaks data into small packets, sends them independently across the network through whatever routes are available, and reassembles them at the destination. If one route is destroyed, the packets simply take another. This was the foundational idea of the internet. ARPANET's first four nodes were: UCLA, Stanford Research Institute, UC Santa Barbara, and the University of Utah. By 1971, ARPANET had 18 nodes. By 1975, 57. By 1981, 213. The network was growing — and it was growing beyond anything its creators had imagined.</p>
+        
+        <!-- ============ اقتباس ============ -->
+        <div class="quote-box">
+            <i class="fas fa-quote-right" aria-hidden="true"></i>
+            <p style="margin-top: 10px;">"The internet was not designed for the public. It was designed by researchers for researchers. No one imagined that one day, half the planet would be on it."</p>
+            <footer style="margin-top: 10px;">— Vint Cerf, co-inventor of TCP/IP, often called one of the "fathers of the internet"</footer>
+        </div>
+        
+        <!-- ============ إعلان 1 ============ -->
+        <div class="ad-container">
+            <div class="ad-label">- Advertisement -</div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9289437351842226" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}</script>
+        </div>
+        
+        <h2>📧 Email, TCP/IP, and the "@" Symbol (1970s–1980s)</h2>
+        <p>In 1971, <strong>Ray Tomlinson</strong>, an engineer at BBN Technologies, created the first networked email system. He needed a way to separate the user's name from the computer they were using — and he chose the <strong>"@" symbol</strong>, an obscure character on the keyboard that was rarely used. The first email was a test message sent between two computers sitting side by side. Tomlinson later said he couldn't remember what the message said — "probably something like QWERTYUIOP." Email quickly became the <strong>"killer app"</strong> of the early internet — the application that made the network indispensable. By 1973, email accounted for <strong>75% of all ARPANET traffic</strong>. In 1974, <strong>Vint Cerf</strong> and <strong>Bob Kahn</strong> published a paper titled "A Protocol for Packet Network Intercommunication" — the foundation of <strong>TCP/IP</strong>, the universal language that allows different networks to communicate with each other. They are widely recognized as the "fathers of the internet." On <strong>January 1, 1983</strong> — a date known as "Flag Day" — ARPANET officially switched to TCP/IP. The modern internet was born. In that same year, the <strong>Domain Name System (DNS)</strong> was created, giving us .com, .org, .gov, and the familiar web addresses we use today.</p>
+        
+        <h2>🌍 Tim Berners-Lee and the World Wide Web (1989)</h2>
+        <p>In 1989, a young British scientist working at <strong>CERN</strong> (the European Organization for Nuclear Research) in Switzerland wrote a proposal titled <strong>"Information Management: A Proposal."</strong> <strong>Tim Berners-Lee</strong> was frustrated by a simple problem: he couldn't easily access documents stored on different computers at CERN. His solution was a system of linked documents — <strong>hypertext</strong> — that could be accessed via the internet. He called it the <strong>World Wide Web</strong>. In 1990, Berners-Lee created the three fundamental technologies that still underpin the Web today: <strong>HTML</strong> (HyperText Markup Language) — the language for writing web pages, <strong>URL</strong> (Uniform Resource Locator) — the unique address of each page, and <strong>HTTP</strong> (Hypertext Transfer Protocol) — the rules for transmitting pages across the network. He also built the first web browser (called WorldWideWeb) and the first web server. Then he made a decision that changed history: in 1993, Berners-Lee and CERN <strong>released the Web technology into the public domain</strong> — no patent, no royalties, no restrictions. Anyone could use it, improve it, build on it. The Web exploded. In 1993, the <strong>Mosaic browser</strong>, developed at the University of Illinois by Marc Andreessen and his team, made the Web accessible to ordinary people with a graphical interface. By 1995, the dot-com boom had begun. By 2000, the Web had over <strong>300 million users</strong>. Sir Tim Berners-Lee was knighted in 2004 and received the <strong>Turing Award</strong> (the "Nobel Prize of Computing") in 2016. He never became a billionaire — because he gave his invention away for free.</p>
+        
+        <!-- ============ اقتباس شهير ============ -->
+        <div class="quote-box">
+            <i class="fas fa-quote-right" aria-hidden="true"></i>
+            <p style="margin-top: 10px;">"The Web is more a social creation than a technical one. I designed it for a social effect — to help people work together — and not as a technical toy."</p>
+            <footer style="margin-top: 10px;">— Sir Tim Berners-Lee, inventor of the World Wide Web</footer>
+        </div>
+        
+        <!-- ============ إعلان 2 ============ -->
+        <div class="ad-container">
+            <div class="ad-label">- Advertisement -</div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9289437351842226" data-ad-slot="2222222222" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+            <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}</script>
+        </div>
+        
+        <h2>📱 The Internet Today: 5 Billion Connected — and Counting</h2>
+        <p>From two letters — <strong>"LO"</strong> — to over <strong>5 billion users</strong>. From a network of four university computers to a global system that connects half the human race. The internet has reshaped every aspect of modern life: communication, commerce, education, politics, entertainment, love, war. It has democratized knowledge — anyone with a connection can access the accumulated wisdom of humanity. It has also amplified disinformation, deepened polarization, and created new forms of surveillance and control. It has connected the world — and divided it. The internet is the greatest invention since the printing press — and its full consequences are still unfolding. It is not a single invention. It is a collaboration — built by thousands of engineers, scientists, and dreamers over decades. It belongs to no one. It belongs to everyone. And it is still being written — by you, by me, by the billions of people who use it every day to send messages, share images, build communities, and speak truth to power. <strong>The network is not finished. The revolution is not over. The next chapter is being written right now.</strong></p>
+        
+        <div class="dark-box">
+            <i class="fas fa-network-wired" style="font-size: 2rem;" aria-hidden="true"></i>
+            <p style="margin-top: 15px;"><strong>The Unfinished Network</strong></p>
+            <p>"The internet was not meant to be what it became. ARPANET was a research project. TCP/IP was an experiment. The Web was a tool for scientists. No one predicted that these technologies would transform human civilization. The internet is a testament to the power of openness — Berners-Lee gave away the Web and changed the world. It is also a warning: the network that connects billions can also be used to monitor, manipulate, and divide them. The internet is not neutral. It is shaped by power, profit, and politics. But it is also shaped by people — by the billions of ordinary users who send messages, share images, build communities, and speak truth to power. The internet is the most powerful communication tool in human history. What we do with it — in the next 50 years — will define the next century."</p>
+        </div>
+        
+        <!-- ============ إعلان 3 ============ -->
+        <div class="ad-container">
+            <div class="ad-label">- Advertisement -</div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9289437351842226" data-ad-slot="3333333333" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+            <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}</script>
+        </div>
+        
+        <!-- ============ إحصائيات ============ -->
+        <div class="battle-stats">
+            <div class="stat-item"><div class="stat-number">1969</div><div class="stat-label">ARPANET Launched</div></div>
+            <div class="stat-item"><div class="stat-number">1989</div><div class="stat-label">World Wide Web Invented</div></div>
+            <div class="stat-item"><div class="stat-number">5B+</div><div class="stat-label">Internet Users Today</div></div>
+            <div class="stat-item"><div class="stat-number">"LO"</div><div class="stat-label">First Message Ever Sent</div></div>
+        </div>
+        
+        <h2>🤔 Frequently Asked Questions</h2>
+        <p><strong>1) Is the internet the same as the World Wide Web?</strong> No. The <strong>internet</strong> is the global network of connected computers — the physical infrastructure of cables, routers, and servers. The <strong>World Wide Web</strong> is a service — a system of linked documents accessed via browsers — that runs on the internet. Email, streaming, and file sharing are other internet services.</p>
+        <p><strong>2) Who invented the internet?</strong> No single person. Key figures: Paul Baran and Donald Davies (packet switching), Vint Cerf and Bob Kahn (TCP/IP), Tim Berners-Lee (World Wide Web), and thousands of other engineers and scientists.</p>
+        <p><strong>3) Why was ARPANET created?</strong> Primarily to share expensive computing resources among university researchers. The "nuclear survival" aspect was a secondary motivation — but the decentralized architecture it inspired became crucial.</p>
+        <p><strong>4) Why is the internet free?</strong> The internet itself is not free — it costs billions to build and maintain infrastructure. But the core protocols (TCP/IP) and the Web standards (HTML, HTTP) are <strong>open and royalty-free</strong> — a deliberate choice by their creators to ensure universal adoption.</p>
+        
+        <!-- ============ المصادر والمراجع ============ -->
+        <div class="sources-box">
+            <h2>📚 Recommended Sources & Further Reading</h2>
+            <ol>
+                <li><strong>Where Wizards Stay Up Late: The Origins of the Internet</strong> by Katie Hafner and Matthew Lyon (1996). The definitive narrative history of ARPANET and the birth of the internet — reads like a novel.</li>
+                <li><strong>Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web</strong> by Tim Berners-Lee (1999). The inventor's own account of how and why he created the Web.</li>
+                <li><strong>The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution</strong> by Walter Isaacson (2014). A sweeping history of the digital age, with excellent coverage of the internet's invention.</li>
+                <li><strong>A Brief History of the Future: The Origins of the Internet</strong> by John Naughton (1999). An accessible and insightful account of the internet's development and its cultural significance.</li>
+            </ol>
+        </div>
+        
+        <!-- ============ مشاركة اجتماعية ============ -->
+        <div class="social-share" role="navigation" aria-label="Share this article">
+            <p>⭐ Share this story — the history of the network you're using right now:</p>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://storydz.com/en/sport-war/internet-invention.html" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://storydz.com/en/sport-war/internet-invention.html&text=It%20began%20with%20a%20crash.%20'LO'%20was%20meant%20to%20be%20'LOGIN.'%20The%20untold%20story%20of%20how%20the%20internet%20was%20born." target="_blank" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://wa.me/?text=https://storydz.com/en/sport-war/internet-invention.html" target="_blank" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://t.me/share/url?url=https://storydz.com/en/sport-war/internet-invention.html" target="_blank" aria-label="Share on Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+        </div>
+        
+        <!-- ============ القصة التالية ============ -->
+        <div class="next-story">
+            <p><i class="fas fa-arrow-right" aria-hidden="true"></i> Back to:</p>
+            <a href="../index.html#sport-war" style="color: #d9a13b; font-weight: bold; font-size: 1.1rem;">Sport, War & Miscellaneous — Main Section →</a>
+        </div>
+        
+        <!-- ============ زر العودة ============ -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../../index.html" class="back-home"><i class="fas fa-home" aria-hidden="true"></i> Back to Homepage</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============ Footer ============ -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>📚 Stories Online</h4>
+            <p>Trusted narratives of the greatest historical events, told with rigor and passion.</p>
+            <div class="social-footer" role="navigation" aria-label="Social media in footer">
+                <a href="https://www.facebook.com/profile.php?id=61563124457159" target="_blank" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/dig_it_al_16/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/africano180" target="_blank" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="https://youtube.com/@alilo-zd4ib" target="_blank" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://www.tiktok.com/@afri.cano4" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                <a href="https://wa.me/213664830275" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="../../about.html">About Us</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="../../privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+            <h4>Read More Stories</h4>
+            <a href="/en/end-times/beast-of-earth.html">Beast of Earth</a>
+            <a href="/en/disasters/great-fire-london.html">Great Fire of London</a>
+            <a href="/en/bani-israel/babylonian-exile.html">Babylonian Exile</a>
+            <a href="/en/end-times/sun-rise-west.html">Sun Rise West</a>
+        </div>
+    </div>
+    <div class="copyright">© 2025 storydz.com - All Rights Reserved | Email: afri95759@gmail.com</div>
+</footer>
+
+<!-- ============ JavaScript: جدول المحتويات ============ -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocList = document.getElementById('toc-list');
+        if (!tocList) return;
+        
+        const headings = document.querySelectorAll('.story-content h2, .story-content h3');
+        
+        headings.forEach(function(heading, index) {
+            if (!heading.id) {
+                heading.id = 'section-' + index;
+            }
+            
+            const li = document.createElement('li');
+            if (heading.tagName.toLowerCase() === 'h3') {
+                li.className = 'toc-h3';
+            }
+            
+            const link = document.createElement('a');
+            link.href = '#' + heading.id;
+            link.textContent = heading.textContent;
+            
+            li.appendChild(link);
+            tocList.appendChild(li);
+        });
+    });
+</script>
+
+</body>
+</html>

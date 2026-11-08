@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Invention d'Internet – De l'Arpanet au World Wide Web</title>
+    <!-- ============ Balises Hreflang ============ -->
+    <link rel="canonical" href="https://storydz.com/fr/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="ar" href="https://storydz.com/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="en" href="https://storydz.com/en/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="fr" href="https://storydz.com/fr/sport-war/internet-invention.html">
+    <link rel="alternate" hreflang="x-default" href="https://storydz.com/sport-war/internet-invention.html">
+    <meta name="description" content="Comment Internet est-il né ? De l'Arpanet militaire au World Wide Web de Tim Berners-Lee. Découvrez l'histoire fascinante du réseau qui a changé la...">
+    <meta name="keywords" content="internet, invention, arpanet, tim berners-lee, world wide web, darpa, vint cerf, tcp/ip, cern, pentagone">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9289437351842226" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3M0BESS50R"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3M0BESS50R');</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; background: linear-gradient(145deg, #f0ebe2 0%, #e2d8cc 100%); color: #2a241e; line-height: 1.9; }
+        .top-bar { background: #1e2a2e; color: #e8d6b5; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+        .social-links a { color: #f2e8cf; margin: 0 8px; font-size: 1.1rem; transition: 0.3s; display: inline-block; }
+        .social-links a:hover { color: #d9a13b; transform: translateY(-2px); }
+        .main-header { background: linear-gradient(135deg, #fff6e8, #fff0e0); padding: 20px 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border-bottom: 1px solid #e2cfb3; }
+        .logo-area h1 { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #8b5a2b, #4f2f10); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        nav { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px; border-top: 1px solid #e2cfb3; padding-top: 18px; }
+        nav a { text-decoration: none; background: #f3ebdd; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #3b2a1f; border: 1px solid #e2cbaa; font-size: 0.9rem; transition: 0.2s; }
+        nav a:hover { background: #c9a87b; color: white; transform: translateY(-2px); }
+        .story-container { max-width: 1000px; margin: 40px auto; background: white; border-radius: 32px; box-shadow: 0 25px 45px rgba(0,0,0,0.1); overflow: hidden; }
+        .story-header { background: linear-gradient(135deg, #0a2a4a, #0a1a3a); padding: 50px 40px; color: #c0d8f0; text-align: center; }
+        .story-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .story-meta { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.95; color: #c0d8f0; }
+        .story-content { padding: 45px 50px; }
+        .story-content h2 { color: #0a2a4a; font-size: 1.8rem; margin: 45px 0 20px 0; border-left: 6px solid #4a8ac0; padding-left: 20px; }
+        .story-content h3 { color: #0a1a3a; font-size: 1.4rem; margin: 35px 0 15px 0; }
+        .story-content p { font-size: 1.08rem; margin-bottom: 22px; text-align: justify; }
+        .highlight-box { background: #e0ecf8; padding: 25px; border-radius: 24px; border-left: 6px solid #4a8ac0; margin: 30px 0; }
+        .mystery-box { background: #0a2a4a; color: #c0d8f0; padding: 28px; border-radius: 24px; margin: 30px 0; text-align: center; }
+        .ad-container { background: #f7f2ea; padding: 20px; margin: 40px 0; text-align: center; border-radius: 20px; }
+        .ad-label { font-size: 12px; color: #9b7b5c; margin-bottom: 6px; }
+        .quote-box { background: #c0d8e8; padding: 25px; border-radius: 24px; margin: 30px 0; text-align: center; font-style: italic; border: 1px solid #4a8ac0; }
+        .social-share { margin: 40px 0 20px; padding-top: 25px; border-top: 1px solid #e2cfb3; text-align: center; }
+        .social-share a { font-size: 1.8rem; margin: 0 12px; color: #5a3e2a; display: inline-block; transition: 0.2s; }
+        .social-share a:hover { color: #4a8ac0; transform: scale(1.15); }
+        .back-home { display: inline-block; background: #ccaa7b; color: #2c2412; padding: 12px 28px; border-radius: 40px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: 0.2s; }
+        .back-home:hover { background: #a57d4a; color: white; }
+        .next-story { background: #f3ede5; padding: 20px; border-radius: 24px; margin-top: 40px; text-align: center; }
+        footer { background: #1f2a24; color: #d8cfbc; padding: 40px 25px 25px; margin-top: 50px; border-radius: 40px 40px 0 0; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 12px; border-left: 3px solid #bb8a5c; padding-left: 12px; }
+        .footer-col a { display: block; color: #ebddc7; text-decoration: none; margin-bottom: 8px; transition: 0.2s; }
+        .footer-col a:hover { color: #e9b469; padding-left: 5px; }
+        .social-footer { display: flex; gap: 18px; margin-top: 12px; flex-wrap: wrap; }
+        .social-footer a { font-size: 1.5rem; color: #cdb38c; transition: 0.2s; }
+        .social-footer a:hover { color: #e9b469; transform: scale(1.1); }
+        .copyright { text-align: center; margin-top: 35px; padding-top: 18px; border-top: 1px solid #3e4d44; font-size: 0.8rem; }
+        @media (max-width: 700px) { .story-content { padding: 25px; } .story-header h1 { font-size: 1.6rem; } .story-header { padding: 35px 25px; } .logo-area h1 { font-size: 1.5rem; } }
+    </style>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+
+<script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+<script>
+    window.ezstandalone = window.ezstandalone || {};
+    ezstandalone.cmd = ezstandalone.cmd || [];
+</script>
+<script src="//ezoicanalytics.com/analytics.js"></script>
+
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="L'Invention d'Internet – De l'Arpanet au World Wide Web">
+    <meta property="og:description" content="Comment Internet est-il né ? De l'Arpanet militaire au World Wide Web de Tim Berners-Lee. Découvrez l'histoire fascinante du réseau qui a changé la...">
+    <meta property="og:image" content="https://storydz.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L'Invention d'Internet – De l'Arpanet au World Wide Web">
+    <meta name="twitter:description" content="Comment Internet est-il né ? De l'Arpanet militaire au World Wide Web de Tim Berners-Lee. Découvrez l'histoire fascinante du réseau qui a changé la...">
+    <meta name="twitter:image" content="https://storydz.com/og-image.png">
+</head>
+<body>
+
+<div class="top-bar">
+    <div><i class="fas fa-scroll"></i> storydz.com | Sport, Guerre & Divers</div>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="lang-switcher" style="display: flex; gap: 8px;">
+            <a href="../../sport-war/internet-invention.html" title="العربية" style="color: #f2e8cf; text-decoration: none; font-size: 1.1rem; transition: 0.3s;" aria-label="العربية">🇸🇦</a>
+            <a href="../../en/sport-war/internet-invention.html" title="English" style="color: #f2e8cf; text-decoration: none; font-size: 1.1rem; transition: 0.3s;" aria-label="English">🇬🇧</a>
+            <a href="../sport-war/internet-invention.html" title="Français" style="color: #f2e8cf; text-decoration: none; font-size: 1.1rem; transition: 0.3s;" aria-label="Français">🇫🇷</a>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61563124457159" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dig_it_al_16/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/africano180" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://youtube.com/@alilo-zd4ib" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@afri.cano4" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/213664830275" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="logo-area"><span class="site-title">📖 Stories Online | storydz.com</span></div>
+    <nav>
+        <a href="../index.html"><i class="fas fa-home"></i> Accueil</a>
+        <a href="../../about.html"><i class="fas fa-info-circle"></i> À propos</a>
+        <a href="../../contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="../privacy.html"><i class="fas fa-lock"></i> Confidentialité</a>
+    </nav>
+</header>
+
+<div class="story-container">
+    <div class="story-header">
+        <h1>🌐 L'Invention d'Internet</h1>
+        <h2 style="font-size: 1.3rem; margin-top: 5px; color: #c0d8f0;">De l'Arpanet au World Wide Web</h2>
+        <div class="story-meta">
+            <span><i class="fas fa-calendar-alt"></i> 1969 – Aujourd'hui</span>
+            <span><i class="fas fa-map-marker-alt"></i> États-Unis / CERN</span>
+            <span><i class="fas fa-clock"></i> Lecture : 18 minutes</span>
+            <span><i class="fas fa-globe"></i> 5 Milliards d'Utilisateurs</span>
+        </div>
+    </div>
+
+    <div class="story-content">
+        <p>Il y a cinquante ans, Internet n'existait pas. Aujourd'hui, plus de 5 milliards d'êtres humains y sont connectés. Cette invention a bouleversé la civilisation plus profondément que l'imprimerie de Gutenberg. Pourtant, Internet n'est pas né dans la Silicon Valley, ni du cerveau d'un entrepreneur visionnaire. Il est né de la peur. La peur, en pleine guerre froide, que les bombardiers soviétiques ne détruisent les centres de communication américains. En 1969, le Pentagone créa l'Arpanet, l'ancêtre d'Internet. Ce réseau expérimental, conçu pour résister à une attaque nucléaire, donna naissance au plus grand réseau de communication de l'histoire humaine. Voici l'histoire de la révolution numérique.</p>
+
+        <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            <p style="margin-top: 10px;"><strong>Résumé :</strong> Internet est né du projet Arpanet, financé par la DARPA (Pentagone) en 1969. Les premiers nœuds reliaient UCLA, Stanford et l'Utah. En 1973, Vint Cerf et Bob Kahn inventèrent le protocole TCP/IP, le « langage universel » d'Internet. En 1989, Tim Berners-Lee inventa le World Wide Web au CERN, rendant Internet accessible au grand public. Le premier navigateur, Mosaic, sortit en 1993. Aujourd'hui, le Web compte plus de 2 milliards de sites.</p>
+        </div>
+
+        <h2>📡 Arpanet : Le Réseau qui Résistait aux Bombes</h2>
+        <p>En 1969, la DARPA (Defense Advanced Research Projects Agency) cherchait un moyen de relier les ordinateurs militaires pour qu'ils survivent à une frappe nucléaire soviétique. L'idée était simple et géniale : si un nœud est détruit, le message trouvera automatiquement un autre chemin. Le 29 octobre 1969, à 22h30, le premier message de l'histoire d'Internet fut envoyé entre l'UCLA et le Stanford Research Institute. Le message censé être « LOGIN ». L'ordinateur crasha après les deux premières lettres. Le premier mot transmis sur Internet fut donc... « LO ».</p>
+        <p>Quatre nœuds seulement composaient Arpanet en décembre 1969. En 1971, il y en avait 23. En 1973, Vint Cerf et Bob Kahn créèrent le protocole TCP/IP, qui permettait à des réseaux différents de communiquer entre eux. Le 1er janvier 1983, Arpanet adopta officiellement TCP/IP. Internet était né.</p>
+
+        <div class="quote-box">
+            <i class="fas fa-quote-right"></i>
+            <p style="margin-top: 10px;">« Le Web ne fait que commencer. Il n'y a pas de plus grande force de changement dans le monde moderne. »</p>
+            <footer style="margin-top: 10px;">— Tim Berners-Lee, inventeur du World Wide Web</footer>
+        </div>
+
+        <div class="ad-container">
+            <div class="ad-label" style="font-size: 12px; color: #9b7b5c;">- Publicité -</div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9289437351842226" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <h2>🌍 Tim Berners-Lee et le World Wide Web</h2>
+        <p>En 1989, un informaticien britannique de 34 ans, Tim Berners-Lee, travaillait au CERN, le centre européen de physique nucléaire à Genève. Il proposa un système hypertexte pour partager des documents entre chercheurs. Il créa trois technologies fondatrices : le HTML (langage des pages web), le HTTP (protocole de transfert hypertexte) et l'URL (adresse web).</p>
+        <p>Le 6 août 1991, Berners-Lee mit en ligne le premier site web de l'histoire. Il expliquait simplement ce qu'était le World Wide Web. Le site existe toujours : info.cern.ch. Berners-Lee refusa de breveter son invention. Il l'offrit gratuitement à l'humanité. « This is for everyone », déclara-t-il lors de la cérémonie d'ouverture des JO de Londres 2012.</p>
+
+        <div class="mystery-box">
+            <i class="fas fa-history"></i>
+            <p style="margin-top: 15px; font-size: 1.1rem;"><strong>Le Premier Site Web (1991) :</strong> Le tout premier site de l'histoire, créé par Tim Berners-Lee, expliquait simplement ce qu'était le World Wide Web et comment créer des pages. Il est toujours accessible à l'adresse : info.cern.ch.</p>
+        </div>
+
+        <div class="ad-container">
+            <div class="ad-label" style="font-size: 12px; color: #9b7b5c;">- Publicité -</div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9289437351842226" data-ad-slot="9876543210" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <h2>📝 La Révolution Numérique</h2>
+        <p>En 1993, le navigateur Mosaic rendit le Web visuel et accessible au grand public. Puis vinrent Netscape, Internet Explorer, Google (1998), Facebook (2004), YouTube (2005), l'iPhone (2007). En 30 ans, le Web a transformé l'économie, la politique, la culture, la science. Il a démocratisé le savoir et connecté les continents. Aujourd'hui, le Web compte plus de 2 milliards de sites et 5 milliards d'utilisateurs. Il est devenu le système nerveux de la planète.</p>
+
+        <div class="social-share">
+            <p>⭐ Vous avez aimé cette histoire ? Partagez-la :</p>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://storydz.com/fr/sport-war/internet-invention.html" target="_blank" aria-label="Partager sur Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://storydz.com/fr/sport-war/internet-invention.html&text=L'Invention%20d'Internet" target="_blank" aria-label="Partager sur Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/?text=https://storydz.com/fr/sport-war/internet-invention.html" target="_blank" aria-label="Partager sur WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/share/url?url=https://storydz.com/fr/sport-war/internet-invention.html" target="_blank" aria-label="Partager sur Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+
+        <div class="next-story">
+            <p><i class="fas fa-arrow-right"></i> Histoire suivante :</p>
+            <a href="marco-polo.html" style="color:#4a8ac0; font-weight: bold;">Marco Polo en Chine</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html#sport-war" class="back-home"><i class="fas fa-home"></i> Retour à Sport, Guerre & Divers</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>📚 Stories Online</h4>
+            <p>Les récits de sport, guerre et divers racontés avec rigueur et passion.</p>
+            <div class="social-footer">
+                <a href="https://www.facebook.com/profile.php?id=61563124457159" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/dig_it_al_16/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/africano180" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://youtube.com/@alilo-zd4ib" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@afri.cano4" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/213664830275" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Liens Rapides</h4>
+            <a href="../../about.html">À propos</a>
+            <a href="../../contact.html">Contact</a>
+            <a href="../privacy.html">Confidentialité</a>
+        </div>
+        <div class="footer-col">
+            <h4>Sections Principales</h4>
+            <a href="/fr/middle-east-conflicts/second-intifada.html">Second intifada</a>
+            <a href="/fr/middle-east-conflicts/jerusalem-embassy-2018.html">Jerusalem embassy 2018</a>
+            <a href="/fr/middle-east-conflicts/syria-ghouta-attack-2013.html">Syria ghouta attack 2013</a>
+            <a href="/fr/mysteries/jack-the-ripper-identity.html">Jack the ripper identity</a>
+        </div>
+    </div>
+    <div class="copyright">© 2025 storydz.com - Tous droits réservés | Email: afri95759@gmail.com</div>
+</footer>
+
+<script>
+    if (typeof adsbygoogle !== 'undefined') {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+</script>
+</body>
+</html>

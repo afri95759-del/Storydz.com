@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>404 | الصفحة غير موجودة - قصص أونلاين</title>
+    <meta name="description" content="عذراً، الصفحة غير موجودة. يمكنك العودة إلى الصفحة الرئيسية في قصص أونلاين.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ink: #2c2418;
+            --mahogany: #32281c;
+            --bronze: #9d7442;
+            --gold: #d9a13b;
+            --paper: #fffaf3;
+            --sand: #e8e2d4;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Cairo", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 18% 12%, rgba(217, 161, 59, 0.18), transparent 34%),
+                linear-gradient(145deg, #f8f5f0 0%, var(--sand) 100%);
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .not-found {
+            width: min(100%, 860px);
+            min-height: min(680px, calc(100vh - 48px));
+            background: linear-gradient(135deg, rgba(255, 250, 243, 0.94), rgba(255, 240, 224, 0.9));
+            border: 1px solid #e2cfb3;
+            border-radius: 28px;
+            box-shadow: 0 24px 60px rgba(44, 36, 24, 0.14);
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            text-align: center;
+            padding: clamp(34px, 7vw, 76px);
+        }
+
+        .not-found::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 1px solid rgba(157, 116, 66, 0.24);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .not-found::after {
+            content: "";
+            position: absolute;
+            inset: auto -12% -22% auto;
+            width: min(420px, 70vw);
+            aspect-ratio: 1;
+            background:
+                linear-gradient(90deg, rgba(50, 40, 28, 0.12) 1px, transparent 1px),
+                linear-gradient(rgba(50, 40, 28, 0.12) 1px, transparent 1px);
+            background-size: 28px 28px;
+            border-radius: 50%;
+            opacity: 0.38;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+
+        .mark {
+            position: relative;
+            color: var(--bronze);
+            font-size: clamp(0.92rem, 2.5vw, 1.05rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            margin-bottom: 8px;
+            z-index: 1;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(6rem, 22vw, 13rem);
+            line-height: 0.9;
+            font-weight: 800;
+            color: var(--mahogany);
+            text-shadow: 0 8px 0 rgba(217, 161, 59, 0.22);
+            margin-bottom: clamp(20px, 4vw, 34px);
+        }
+
+        .message {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            color: #4f2f10;
+            font-size: clamp(1.4rem, 4.8vw, 2.3rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .hint {
+            position: relative;
+            z-index: 1;
+            max-width: 540px;
+            color: #6a4e2e;
+            font-size: clamp(0.98rem, 2.8vw, 1.12rem);
+            margin-bottom: 34px;
+        }
+
+        .home-link {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            color: #fffaf3;
+            background: linear-gradient(135deg, var(--mahogany), #5f4430);
+            border: 1px solid rgba(79, 47, 16, 0.28);
+            box-shadow: 0 12px 24px rgba(50, 40, 28, 0.2);
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .home-link:hover,
+        .home-link:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 28px rgba(50, 40, 28, 0.24);
+            background: linear-gradient(135deg, #4f2f10, var(--bronze));
+            outline: none;
+        }
+
+        .home-link:active {
+            transform: translateY(0);
+        }
+
+        /* زر الخيار الثاني - للرجوع للخلف */
+        .back-link {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            color: var(--mahogany);
+            background: transparent;
+            border: 2px solid var(--bronze);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .back-link:hover,
+        .back-link:focus-visible {
+            background: var(--bronze);
+            color: #fffaf3;
+            outline: none;
+        }
+
+        .buttons-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 14px;
+            }
+
+            .not-found {
+                min-height: calc(100vh - 28px);
+                border-radius: 22px;
+                padding: 34px 22px;
+            }
+
+            .not-found::before {
+                inset: 12px;
+                border-radius: 16px;
+            }
+
+            .hint {
+                margin-bottom: 28px;
+            }
+
+            .buttons-wrapper {
+                max-width: 100%;
+            }
+
+            .home-link,
+            .back-link {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="not-found" aria-labelledby="page-title">
+        <p class="mark">قصص أونلاين</p>
+        <h1 id="page-title">404</h1>
+        <p class="message">عذراً، هذه الصفحة غير موجودة</p>
+        <p class="hint">ربما تغير مسار القصة أو لم تعد الصفحة متاحة. يمكنك الرجوع إلى الأرشيف الرئيسي ومتابعة القراءة.</p>
+        
+        <div class="buttons-wrapper">
+            <!-- زر العودة إلى الرئيسية -->
+            <a class="home-link" id="homeLink">العودة إلى الرئيسية</a>
+            
+            <!-- زر الرجوع للخلف (اختياري) -->
+            <a class="back-link" id="backLink">↩ العودة للصفحة السابقة</a>
+        </div>
+    </main>
+
+    <script>
+        // زر العودة إلى الرئيسية
+        document.getElementById('homeLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // محاولة الانتقال إلى الرئيسية بطرق مختلفة
+            const currentUrl = window.location.href;
+            const currentOrigin = window.location.origin;
+            const currentPath = window.location.pathname;
+            
+            // قائمة بالمسارات المحتملة للرئيسية
+            const possiblePaths = [
+                currentOrigin + '/',
+                currentOrigin + '/index.html',
+                currentOrigin + '/home',
+                currentOrigin + '/main',
+                './',
+                './index.html',
+                '../',
+                '../index.html'
+            ];
+            
+            // محاولة كل مسار حتى ينجح
+            let success = false;
+            
+            for (let path of possiblePaths) {
+                try {
+                    // نستخدم fetch للتحقق من وجود الصفحة
+                    fetch(path, { method: 'HEAD', mode: 'no-cors' })
+                        .then(() => {
+                            if (!success) {
+                                success = true;
+                                window.location.href = path;
+                            }
+                        })
+                        .catch(() => {
+                            // إذا فشل fetch، نجرب الانتقال مباشرة
+                        });
+                } catch (error) {
+                    // تجاهل الأخطاء
+                }
+            }
+            
+            // إذا لم ينجح أي من المسارات خلال 2 ثانية، استخدم الرجوع للخلف أو Google
+            setTimeout(() => {
+                if (!success) {
+                    // محاولة الرجوع للخلف
+                    if (document.referrer && document.referrer !== '') {
+                        window.history.back();
+                    } else {
+                        // الانتقال إلى Google كحل أخير
+                        window.location.href = 'https://www.google.com';
+                    }
+                }
+            }, 2000);
+        });
+
+        // زر الرجوع للصفحة السابقة
+        document.getElementById('backLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (document.referrer && document.referrer !== '') {
+                window.history.back();
+            } else {
+                // إذا لم تكن هناك صفحة سابقة، نذهب للرئيسية
+                document.getElementById('homeLink').click();
+            }
+        });
+
+        // دعم لوحة المفاتيح
+        document.querySelectorAll('.home-link, .back-link').forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // محاولة تلقائية للعودة للصفحة السابقة إذا كان المستخدم قادماً من رابط
+        window.addEventListener('load', function() {
+            // إذا كان هناك صفحة سابقة في التاريخ
+            if (window.history.length > 1) {
+                // نضيف مؤشر للمستخدم أن بإمكانه الرجوع
+                const backLink = document.getElementById('backLink');
+                backLink.style.display = 'inline-flex';
+            }
+        });
+    </script>
+</body>
+</html>

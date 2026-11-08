@@ -1,0 +1,148 @@
+# ============================================================
+# إعدادات لوحة تحكم Decap CMS لموقع StoryDZ
+# ============================================================
+
+backend:
+  name: git-gateway          # يتطلب تفعيل Identity + Git Gateway في Netlify
+  branch: main               # غيّرها إلى master إن كان فرعك الرئيسي كذلك
+  # repo: your-username/your-repo   # اختياري: فعّله إن أردت تحديد المستودع يدوياً
+
+# مكان حفظ الملفات المرفوعة (غير مستخدم حالياً لأن الصور على Drive)
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# إعدادات العرض
+locale: "ar"                 # واجهة عربية (مدعومة في Decap CMS)
+site_url: https://storydz.com
+display_url: https://storydz.com
+logo_url: https://storydz.com/favicon.ico
+
+# إعدادات محرر Markdown
+publish_mode: simple         # "editorial_workflow" لو أردت نظام مسودات/مراجعة
+
+# ============================================================
+# تعريف الحقول المشتركة
+# ============================================================
+collections:
+  # ----------------------------------------------------------
+  # 1) القصص
+  # ----------------------------------------------------------
+  - name: "stories"
+    label: "القصص"
+    label_singular: "قصة"
+    description: "إضافة وتعديل قصص الموقع باللغات الثلاث"
+    folder: "content"
+    create: true
+    delete: true
+    slug: "{{lang}}/{{category}}/{{slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{lang}} / {{category}}"
+    sortable_fields: ["title", "date", "lang", "category"]
+    view_filters:
+      - label: "العربية"
+        field: lang
+        pattern: "ar"
+      - label: "English"
+        field: lang
+        pattern: "en"
+      - label: "Français"
+        field: lang
+        pattern: "fr"
+      - label: "قصص الأنبياء"
+        field: category
+        pattern: "prophets"
+      - label: "علماء ومخترعون"
+        field: category
+        pattern: "scientists"
+    nested:
+      depth: 2
+      subfolders: true
+    fields:
+      - label: "العنوان"
+        name: "title"
+        widget: "string"
+        hint: "عنوان القصة كما سيظهر في الصفحة"
+
+      - label: "اللغة"
+        name: "lang"
+        widget: "select"
+        options:
+          - { label: "العربية", value: "ar" }
+          - { label: "English", value: "en" }
+          - { label: "Français", value: "fr" }
+        default: "ar"
+
+      - label: "التصنيف"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "قصص الأنبياء", value: "prophets" }
+          - { label: "علماء ومخترعون", value: "scientists" }
+          - { label: "حضارات قديمة", value: "civilizations" }
+          - { label: "معالم وعجائب", value: "landmarks" }
+          - { label: "اختراعات", value: "inventions" }
+          - { label: "قصص ملهمة", value: "inspiring" }
+          - { label: "اكتشافات", value: "discoveries" }
+          - { label: "فنون وآداب", value: "arts-literature" }
+        default: "prophets"
+
+      - label: "الوصف المختصر"
+        name: "description"
+        widget: "text"
+        required: false
+        hint: "سطر أو سطران يظهران في القوائم ونتائج البحث"
+
+      - label: "معرّف صورة الغلاف (Google Drive)"
+        name: "cover_drive_id"
+        widget: "string"
+        required: false
+        hint: "من رابط Drive مثل: https://drive.google.com/file/d/ABC123/view — انسخ ABC123 فقط"
+
+      - label: "رابط الفيديو"
+        name: "video_url"
+        widget: "string"
+        required: false
+        hint: "رابط YouTube (youtu.be/... أو youtube.com/watch?v=...) أو TikTok"
+
+      - label: "تاريخ النشر"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        required: false
+
+      - label: "كلمات مفتاحية (Tags)"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "اختياري — تساعد في البحث والتصنيف"
+
+      - label: "المحتوى"
+        name: "body"
+        widget: "markdown"
+        hint: "اكتب القصة هنا. يمكنك استخدام العناوين والقوائم والصور"
+
+  # ----------------------------------------------------------
+  # 2) إعدادات الموقع العامة
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "إعدادات الموقع"
+    files:
+      - label: "الإعدادات العامة"
+        name: "general"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "اسم الموقع", name: "site_name", widget: "string", default: "StoryDZ" }
+          - { label: "وصف الموقع", name: "site_description", widget: "text", required: false }
+          - { label: "البريد للتواصل", name: "contact_email", widget: "string", required: false }
+          - { label: "رابط الصفحة الرئيسية", name: "home_url", widget: "string", default: "/" }
+          - { label: "تفعيل الوضع الليلي", name: "dark_mode", widget: "boolean", default: false }
+          - label: "روابط التواصل الاجتماعي"
+            name: "social"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "TikTok", name: "tiktok", widget: "string", required: false }

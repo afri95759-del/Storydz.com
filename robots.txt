@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /template.html
+
+Sitemap: https://storydz.com/sitemap.xml

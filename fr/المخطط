@@ -1,0 +1,421 @@
+storydz.com/
+└── fr/
+    ├── index.html                          ✅ الصفحة الرئيسية
+    ├── about.html                          ✅ من نحن (À Propos)
+    ├── contact.html                        ✅ اتصل بنا (Contact)
+    ├── privacy.html                        ✅ سياسة الخصوصية (Confidentialité)
+    │
+    ├── war-stories/                        📁 قصص الحروب (24 قصة)
+    │   ├── lost-persian-army.html
+    │   ├── battle-of-ain-jalut.html
+    │   ├── algerian-revolution-1954.html
+    │   ├── october-war-1973.html
+    │   ├── gulf-war-1991.html
+    │   ├── iraq-war-2003.html
+    │   ├── srebrenica-massacre-1995.html
+    │   ├── battle-of-hastings-1066.html
+    │   ├── battle-of-stalingrad.html
+    │   ├── waterloo-battle.html
+    │   ├── vietnam-war-secrets.html
+    │   ├── battle-of-yarmouk.html
+    │   ├── conquest-of-constantinople.html
+    │   ├── world-war-one-trench-war.html
+    │   ├── normandy-landings.html
+    │   ├── battle-of-qadisiyah.html
+    │   ├── battle-of-manzikert.html
+    │   ├── battle-of-el-alamein.html
+    │   ├── crimean-war.html
+    │   ├── spanish-civil-war.html
+    │   ├── soviet-afghan-war.html
+    │   ├── battle-of-verdun.html
+    │   ├── battle-of-ypres.html
+    │   └── bosnian-war-1992.html
+    │
+    ├── crusades-jihad/                     📁 الحروب الصليبية (13 قصة)
+    │   ├── battle-of-hittin-1187.html
+    │   ├── jerusalem-massacre-1099.html
+    │   ├── fall-of-toledo-1085.html
+    │   ├── granada-fall-1492.html
+    │   ├── andalusian-jews-expulsion.html
+    │   ├── richard-heart-of-lion.html
+    │   ├── battle-of-mansurah.html
+    │   ├── knights-templar-secrets.html
+    │   ├── first-crusade.html
+    │   ├── third-crusade.html
+    │   ├── siege-of-acre.html
+    │   ├── kingdom-of-jerusalem.html
+    │   └── baldwin-iv-leper-king.html
+    │
+    ├── middle-east-conflicts/              📁 صراعات الشرق الأوسط (22 قصة)
+    │   ├── palestinian-nakba-1948.html
+    │   ├── sabra-shatila-massacre.html
+    │   ├── black-september-jordan.html
+    │   ├── gaza-war-2014.html
+    │   ├── lebanon-war-2006.html
+    │   ├── syria-ghouta-attack-2013.html
+    │   ├── yemen-saada-war.html
+    │   ├── iran-iraq-war-8-years.html
+    │   ├── suez-crisis-1956.html
+    │   ├── lebanese-civil-war.html
+    │   ├── six-day-war-1967.html
+    │   ├── operation-protective-edge.html
+    │   ├── war-1948.html
+    │   ├── operation-entebbe.html
+    │   ├── oslo-accords.html
+    │   ├── siege-of-beirut.html
+    │   ├── first-intifada.html
+    │   ├── khan-younis-massacre.html
+    │   ├── second-intifada.html
+    │   ├── gaza-flotilla-raid.html
+    │   ├── camp-david-accords.html
+    │   └── jerusalem-embassy-2018.html
+    │
+    ├── assassinations/                     📁 الاغتيالات (24 قصة)
+    │   ├── saddam-hussein-execution.html
+    │   ├── osama-bin-laden-death.html
+    │   ├── anwar-sadat-assassination.html
+    │   ├── rafik-hariri-assassination.html
+    │   ├── mohamed-boudiaf-assassination.html
+    │   ├── john-f-kennedy-assassination.html
+    │   ├── qasem-soleimani-assassination.html
+    │   ├── indira-gandhi-assassination.html
+    │   ├── king-faisal-assassination.html
+    │   ├── martin-luther-king-death.html
+    │   ├── malcolm-x-assassination.html
+    │   ├── julius-caesar-betrayal.html
+    │   ├── ghassan-kanafani-mossad.html
+    │   ├── shirin-abu-akleh-death.html
+    │   ├── sheikh-ahmed-yassin.html
+    │   ├── benazir-bhutto.html
+    │   ├── lincoln-assassination.html
+    │   ├── archduke-franz-ferdinand.html
+    │   ├── tsar-nicholas-execution.html
+    │   ├── cicero-rome.html
+    │   ├── rasputin-murder.html
+    │   ├── patrice-lumumba.html
+    │   ├── gianni-versace.html
+    │   └── olof-palme.html
+    │
+    ├── revolutions/                        📁 الثورات والانقلابات (23 قصة)
+    │   ├── french-revolution-1789.html
+    │   ├── russian-revolution-1917.html
+    │   ├── algerian-october-1988.html
+    │   ├── egyptian-bread-intifada.html
+    │   ├── tunisian-revolution-2011.html
+    │   ├── libyan-civil-war.html
+    │   ├── sudan-uprising-2019.html
+    │   ├── american-independence.html
+    │   ├── iranian-revolution-1979.html
+    │   ├── chinese-communist-revolution.html
+    │   ├── cuban-revolution-castro.html
+    │   ├── syrian-revolution-2011.html
+    │   ├── yemeni-revolution.html
+    │   ├── arab-spring.html
+    │   ├── glorious-revolution.html
+    │   ├── haitian-revolution.html
+    │   ├── romanian-revolution.html
+    │   ├── velvet-revolution.html
+    │   ├── greek-revolution-1821.html
+    │   ├── dutch-revolt.html
+    │   ├── hungarian-1956.html
+    │   ├── prague-spring-1968.html
+    │   └── german-revolution-1918.html
+    │
+    ├── colonialism/                        📁 الاستعمار والمقاومة (22 قصة)
+    │   ├── french-algeria-massacre-1945.html
+    │   ├── omar-mokhtar-resistance.html
+    │   ├── general-gordon-khartoum.html
+    │   ├── tunisia-independence-bourguiba.html
+    │   ├── mauritania-coup-1978.html
+    │   ├── comoros-mercenary-bob-denard.html
+    │   ├── djibouti-independence.html
+    │   ├── abdelkader-al-jazairi.html
+    │   ├── mahatma-gandhi-salt-march.html
+    │   ├── nelson-mandela-apartheid.html
+    │   ├── mau-mau-uprising.html
+    │   ├── morocco-rif-war.html
+    │   ├── algerian-war-independence.html
+    │   ├── kenyatta-freedom.html
+    │   ├── ho-chi-minh.html
+    │   ├── indonesian-independence.html
+    │   ├── indian-partition-1947.html
+    │   ├── congo-belgium-colonialism.html
+    │   ├── south-africa-apartheid-end.html
+    │   ├── zimbabwe-independence.html
+    │   ├── mozambique-frelimo.html
+    │   └── angola-mpla.html
+    │
+    ├── african-conflicts/                  📁 صراعات أفريقية (14 قصة)
+    │   ├── rwanda-genocide-1994.html
+    │   ├── biafra-war-nigeria.html
+    │   ├── angola-civil-war.html
+    │   ├── mogadishu-battle-1993.html
+    │   ├── ethiopia-italy-war.html
+    │   ├── somalia-islamic-courts.html
+    │   ├── great-congo-war.html
+    │   ├── darfur-conflict-history.html
+    │   ├── chad-libya-toyota-war.html
+    │   ├── eritrean-independence-war.html
+    │   ├── south-sudan-independence-war.html
+    │   ├── sierra-leone-civil-war.html
+    │   ├── western-sahara-conflict.html
+    │   └── burundi-civil-war.html
+    │
+    ├── mysteries/                          📁 ألغاز تاريخية (24 قصة)
+    │   ├── pharaoh-moses-mystery.html
+    │   ├── lost-city-of-erm.html
+    │   ├── library-of-alexandria-fire.html
+    │   ├── noahs-ark-ararat.html
+    │   ├── bermuda-triangle-mystery.html
+    │   ├── roswell-ufo-crash.html
+    │   ├── philadelphia-experiment.html
+    │   ├── great-pyramid-builders.html
+    │   ├── jack-the-ripper-identity.html
+    │   ├── atlantis-lost-continent.html
+    │   ├── voynich-manuscript.html
+    │   ├── holy-grail-secret.html
+    │   ├── nazca-lines-peru.html
+    │   ├── tunguska-event-1908.html
+    │   ├── stonehenge-secret.html
+    │   ├── mona-lisa-secret.html
+    │   ├── curse-of-pharaohs.html
+    │   ├── oak-island-treasure.html
+    │   ├── easter-island-statues.html
+    │   ├── shroud-of-turin.html
+    │   ├── ark-of-covenant-lost.html
+    │   ├── king-arthur-legend.html
+    │   ├── el-dorado-city.html
+    │   └── amelia-earhart-disappearance.html
+    │
+    ├── strange-stories/                    📁 أغرب القصص التاريخية (21 قصة)
+    │   ├── dancing-plague-1518.html
+    │   ├── rain-of-animals.html
+    │   ├── trung-sisters-vietnam.html
+    │   ├── pope-cadaver-trial.html
+    │   ├── tarrare-glutton-man.html
+    │   ├── childrens-crusade.html
+    │   ├── emperor-norton-usa.html
+    │   ├── green-children-woolpit.html
+    │   ├── london-beer-flood.html
+    │   ├── ghost-army-ww2.html
+    │   ├── pirate-republic.html
+    │   ├── rasputin-death.html
+    │   ├── man-who-lived-in-airport.html
+    │   ├── wolf-children.html
+    │   ├── victor-lustig.html
+    │   ├── mary-toft-rabbits.html
+    │   ├── great-stink-london.html
+    │   ├── tulip-mania.html
+    │   ├── dancing-queen-madagascar.html
+    │   ├── year-without-summer.html
+    │   └── town-that-banned-death.html
+    │
+    ├── islamic-history/                    📁 التاريخ الإسلامي (22 قصة)
+    │   ├── moawiya-ibn-abu-sufyan.html
+    │   ├── garamantes-kingdom.html
+    │   ├── queen-of-sheba-treasure.html
+    │   ├── ataturk-ottoman-caliphate.html
+    │   ├── zanj-rebellion.html
+    │   ├── barbarossa-pirate-treasure.html
+    │   ├── harun-al-rashid-era.html
+    │   ├── umayyad-andalusia.html
+    │   ├── salah-al-din-jerusalem.html
+    │   ├── abbasid-revolution.html
+    │   ├── mamluk-sultans.html
+    │   ├── al-andalus-fall.html
+    │   ├── omar-ibn-khattab.html
+    │   ├── tariq-ibn-ziyad.html
+    │   ├── ibn-battuta.html
+    │   ├── al-khwarizmi.html
+    │   ├── ibn-sina.html
+    │   ├── al-biruni.html
+    │   ├── ibn-rushd.html
+    │   ├── ibn-khaldun.html
+    │   ├── fatimid-caliphate.html
+    │   └── alhambra-history.html
+    │
+    ├── bani-israel/                        📁 بنو إسرائيل (16 قصة)
+    │   ├── prophet-musa-pharaoh.html
+    │   ├── exodus-story.html
+    │   ├── tabut-ark-covenant.html
+    │   ├── prophet-dawud.html
+    │   ├── prophet-sulaiman.html
+    │   ├── temple-of-solomon.html
+    │   ├── babylonian-exile.html
+    │   ├── roman-destruction-70.html
+    │   ├── jewish-diaspora.html
+    │   ├── queen-of-sheba.html
+    │   ├── yajuj-majuj.html
+    │   ├── dead-sea-scrolls.html
+    │   ├── masada-fortress.html
+    │   ├── bar-kochba-revolt.html
+    │   ├── maccabean-revolt.html
+    │   └── herod-great-temple.html
+    │
+    ├── fallen-empires/                     📁 إمبراطوريات بائدة (22 قصة)
+    │   ├── roman-empire-fall.html
+    │   ├── persian-empire.html
+    │   ├── mongol-empire.html
+    │   ├── ottoman-empire-fall.html
+    │   ├── byzantine-empire.html
+    │   ├── inca-empire.html
+    │   ├── aztec-empire.html
+    │   ├── british-empire.html
+    │   ├── alexander-the-great.html
+    │   ├── abbasid-empire.html
+    │   ├── umayyad-empire.html
+    │   ├── pharaohs-empire.html
+    │   ├── genghis-khan.html
+    │   ├── holy-roman-empire.html
+    │   ├── maya-civilization.html
+    │   ├── napoleon-empire.html
+    │   ├── spanish-empire.html
+    │   ├── portuguese-empire.html
+    │   ├── dutch-empire.html
+    │   ├── russian-empire.html
+    │   ├── austro-hungarian-empire.html
+    │   └── japanese-empire.html
+    │
+    ├── football-stories/                   📁 قصص كرة القدم (21 قصة)
+    │   ├── first-world-cup-1930.html
+    │   ├── champions-league-origins.html
+    │   ├── maradona-hand-of-god.html
+    │   ├── brazil-1958-pele.html
+    │   ├── munich-air-disaster.html
+    │   ├── zidane-headbutt-2006.html
+    │   ├── egypt-african-cups.html
+    │   ├── algeria-2019-africa.html
+    │   ├── morocco-world-cup-2022.html
+    │   ├── real-madrid-galacticos.html
+    │   ├── barcelona-tiki-taka.html
+    │   ├── death-match-ukraine.html
+    │   ├── heysel-disaster.html
+    │   ├── miracle-of-bern.html
+    │   ├── mohamed-salah.html
+    │   ├── pele-1000-goals.html
+    │   ├── cruyff-total-football.html
+    │   ├── manchester-united-1999.html
+    │   ├── greek-euro-2004.html
+    │   ├── germany-7-1-brazil.html
+    │   └── liverpool-istanbul-2005.html
+    │
+    ├── end-times/                          📁 أحداث النهاية (14 قصة)
+    │   ├── signs-of-the-hour.html
+    │   ├── imam-mahdi.html
+    │   ├── dajjal-story.html
+    │   ├── return-of-isa.html
+    │   ├── yajuj-majuj-end.html
+    │   ├── gog-magog-wall.html
+    │   ├── sun-rise-west.html
+    │   ├── beast-of-earth.html
+    │   ├── fire-gathers-people.html
+    │   ├── day-of-judgment.html
+    │   ├── life-after-death.html
+    │   ├── paradise.html
+    │   ├── hellfire.html
+    │   └── intercession-day.html
+    │
+    ├── world-leaders/                      📁 شخصيات عالمية (19 قصة)
+    │   ├── adolf-hitler-rise.html
+    │   ├── lenin-russian-revolution.html
+    │   ├── garibaldi-italy-unity.html
+    │   ├── george-washington-freemason.html
+    │   ├── franco-spanish-civil-war.html
+    │   ├── stalin-iron-fist.html
+    │   ├── napoleon-bonaparte-empire.html
+    │   ├── che-guevara-diary.html
+    │   ├── winston-churchill-ww2.html
+    │   ├── nicola-tesla.html
+    │   ├── mansa-musa.html
+    │   ├── albert-einstein.html
+    │   ├── steve-jobs.html
+    │   ├── marie-curie.html
+    │   ├── nelson-mandela-leader.html
+    │   ├── queen-elizabeth-i.html
+    │   ├── cleopatra.html
+    │   ├── julius-caesar.html
+    │   └── saladin.html
+    │
+    ├── spy-stories/                        📁 جواسيس غيروا التاريخ (22 قصة) ✅ مكتمل
+    │   ├── raafat-el-hagan.html
+    │   ├── eli-cohen.html
+    │   ├── kim-philby.html
+    │   ├── ashraf-marwan.html
+    │   ├── mata-hari.html
+    │   ├── aldrich-ames.html
+    │   ├── juan-pujol.html
+    │   ├── richard-sorge.html
+    │   ├── virginia-hall.html
+    │   ├── rosenbergs.html
+    │   ├── enigma-secret.html
+    │   ├── mossad-secrets.html
+    │   ├── jumaa-al-shwan.html
+    │   ├── vassili-arkhipov.html
+    │   ├── marcus-wolf.html
+    │   ├── kgb-london.html
+    │   ├── cia-early-operations.html
+    │   ├── robert-hanssen.html
+    │   ├── george-blake.html
+    │   ├── oleg-penkovsky.html
+    │   ├── mi6-secrets.html
+    │   └── french-resistance-spies.html
+    │
+    ├── disasters/                          📁 كوارث ولحظات مرعبة (20 قصة)
+    │   ├── chernobyl-1986.html
+    │   ├── titanic-sinking.html
+    │   ├── black-death.html
+    │   ├── hindenburg.html
+    │   ├── fukushima-2011.html
+    │   ├── beirut-explosion.html
+    │   ├── lisbon-earthquake.html
+    │   ├── pompeii-vesuvius.html
+    │   ├── tsunami-2004.html
+    │   ├── bhopal-gas.html
+    │   ├── challenger-disaster.html
+    │   ├── great-fire-london.html
+    │   ├── irish-famine.html
+    │   ├── china-flood-1931.html
+    │   ├── halifax-explosion.html
+    │   ├── spanish-flu-1918.html
+    │   ├── hurricane-katrina.html
+    │   ├── haiti-earthquake-2010.html
+    │   ├── mount-pelee-1902.html
+    │   └── columbia-shuttle-disaster.html
+    │
+    ├── mystery-crime/                      📁 غموض وجرائم لم تحل (19 قصة) ✅ مكتمل
+    │   ├── zodiac-killer.html
+    │   ├── black-dahlia.html
+    │   ├── dyatlov-pass.html
+    │   ├── amelia-earhart.html
+    │   ├── mh370.html
+    │   ├── jack-the-ripper.html
+    │   ├── taman-shud.html
+    │   ├── roanoke-colony.html
+    │   ├── iron-mask.html
+    │   ├── db-cooper.html
+    │   ├── madeleine-mccann.html
+    │   ├── loch-ness.html
+    │   └── marfa-lights.html
+    │
+    └── sport-war/                          📁 رياضة وحروب ومنوعات (21 قصة)
+        ├── emus-war.html
+        ├── christmas-truce.html
+        ├── olympics-origin.html
+        ├── samurai-last.html
+        ├── internet-invention.html
+        ├── marco-polo.html
+        ├── vikings-story.html
+        ├── silk-road.html
+        ├── terracotta-army.html
+        ├── red-cross.html
+        ├── clock-invention.html
+        ├── printing-press.html
+        ├── berlin-wall.html
+        ├── apollo-11.html
+        ├── bermuda-triangle.html
+        ├── moon-landing-conspiracy.html
+        ├── roman-gladiators.html
+        ├── spartacus-revolt.html
+        ├── marathon-origin.html
+        ├── wright-brothers.html
+        └── space-race-usa-ussr.html
