@@ -17,7 +17,7 @@
     #nc-root {
       height: 100%;
     }
-    /* شاشة تحميل مؤقتة تظهر قبل تحميل لوحة التحكم */
+    /* شاشة تحميل مؤقتة */
     #loading-screen {
       position: fixed;
       inset: 0;
@@ -50,21 +50,21 @@
 </head>
 <body>
 
-  <!-- شاشة التحميل -->
   <div id="loading-screen">
     <div class="spinner"></div>
     <p>جارٍ تحميل لوحة التحكم...</p>
   </div>
 
-  <!-- حاوية لوحة التحكم -->
   <div id="nc-root"></div>
 
-  <!-- سكربت Decap CMS -->
+  <!-- 1. سكربت Netlify Identity (ضروري جداً لعمل زر التسجيل وتسجيل الدخول) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- 2. سكربت Decap CMS (لوحة التحكم نفسها) -->
   <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
 
   <script>
-    // إخفاء شاشة التحميل بمجرد أن يصبح DOM جاهزاً
-    // (Decap CMS يرسم نفسه داخل #nc-root تلقائياً)
+    // إخفاء شاشة التحميل
     window.addEventListener('load', function () {
       var loader = document.getElementById('loading-screen');
       if (loader) {
@@ -73,7 +73,7 @@
       }
     });
 
-    // في حال حدوث خطأ في تحميل السكربت، نعرض رسالة واضحة
+    // معالجة الأخطاء في حال عدم تحميل السكربتات
     window.addEventListener('error', function (e) {
       if (e.target && e.target.tagName === 'SCRIPT') {
         var loader = document.getElementById('loading-screen');
