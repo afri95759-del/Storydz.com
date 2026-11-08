@@ -3,285 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>لوحة تحكم StoryDZ</title>
+    <title>StoryDZ Pro Dashboard</title>
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- محرر النصوص المتقدم -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #f8fafc; --card: #ffffff; --primary: #2563eb;
-            --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0; --success: #10b981;
+            --bg: #f1f5f9; --card: #ffffff; --primary: #2563eb;
+            --text: #0f172a; --text-muted: #64748b; --border: #cbd5e1;
+            --success: #10b981; --danger: #ef4444; --sidebar: #1e293b;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 50px; }
-        header { background: var(--card); padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; text-align: center; font-weight: bold; font-size: 18px; color: var(--primary); }
-        .container { padding: 15px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-        .card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid var(--border); }
-        .card-title { font-size: 16px; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        [data-theme="dark"] {
+            --bg: #0f172a; --card: #1e293b; --primary: #3b82f6;
+            --text: #f8fafc; --text-muted: #94a3b8; --border: #334155;
+            --sidebar: #020617;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background 0.3s, color 0.3s; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
         
-        .api-input { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; font-family: monospace; direction: ltr; }
-        .chat-window { height: 120px; background: #f1f5f9; border-radius: 8px; padding: 10px; overflow-y: auto; margin-bottom: 10px; font-size: 14px; }
-        .chat-input-wrapper { display: flex; gap: 8px; }
-        .chat-input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 8px; }
+        /* الهيدر */
+        header { background: var(--card); padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: bold; font-size: 18px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .theme-toggle { background: none; border: none; color: var(--text); font-size: 20px; cursor: pointer; }
+
+        /* التبويبات */
+        .tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--border); }
+        .tab { flex: 1; padding: 15px; text-align: center; cursor: pointer; font-weight: bold; color: var(--text-muted); border-bottom: 3px solid transparent; }
+        .tab.active { color: var(--primary); border-bottom-color: var(--primary); background: var(--bg); }
+
+        /* المحتوى */
+        .content { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .card-title { font-size: 16px; font-weight: bold; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; color: var(--text); }
         
-        .btn { padding: 12px 15px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        /* النماذج */
+        .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 200px; margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-muted); }
+        .form-control { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px; background: var(--bg); color: var(--text); }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+        
+        /* الأزرار */
+        .btn { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-success { background: var(--success); color: white; }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* محرر النصوص */
+        .editor-container { height: 300px; background: var(--bg); border-radius: 8px; overflow: hidden; color: var(--text); }
+        .ql-toolbar { background: var(--card); border-color: var(--border) !important; }
+        .ql-container { border-color: var(--border) !important; font-size: 16px; }
+
+        /* المساعد الذكي */
+        .chat-container { display: flex; flex-direction: column; height: 400px; }
+        .chat-window { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 15px; overflow-y: auto; margin-bottom: 15px; }
+        .chat-msg { margin-bottom: 15px; padding: 10px 15px; border-radius: 8px; max-width: 80%; }
+        .chat-msg.user { background: var(--primary); color: white; align-self: flex-end; margin-left: auto; }
+        .chat-msg.ai { background: var(--card); border: 1px solid var(--border); }
         
-        .story-select { width: 100%; padding: 12px; border: 2px solid var(--primary); border-radius: 8px; font-size: 16px; margin-bottom: 15px; background: #eff6ff; }
+        /* المعاينة */
+        .preview-box { border: 1px dashed var(--border); border-radius: 8px; padding: 10px; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center; margin-top: 10px; }
+        .preview-box img, .preview-box iframe { max-width: 100%; max-height: 200px; border-radius: 6px; }
+
+        /* رسائل التنبيه (Toast) */
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 12px 24px; border-radius: 50px; font-weight: bold; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; }
+        .toast.show { opacity: 1; bottom: 30px; }
+        .toast.error { background: var(--danger); color: white; }
         
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--text-muted); }
-        .form-control { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px; }
-        textarea.form-control { min-height: 150px; resize: vertical; }
-        
-        .preview-container { margin-top: 10px; border: 1px dashed var(--border); border-radius: 8px; padding: 10px; text-align: center; background: #f8fafc; min-height: 100px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-        .preview-container img, .preview-container iframe { max-width: 100%; border-radius: 6px; max-height: 200px; }
-        
-        .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
-        .tab { flex: 1; padding: 10px; text-align: center; background: var(--card); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .tab.active { background: var(--primary); color: white; border-color: var(--primary); }
-        .hidden { display: none !important; }
-        
-        .status-msg { padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-weight: bold; display: none; }
-        .status-success { background: #dcfce7; color: #166534; display: block; }
-        .status-error { background: #fee2e2; color: #991b1b; display: block; }
+        /* مودال الرفع */
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: var(--card); padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; }
+        .modal.active { display: flex; }
     </style>
 </head>
 <body>
 
-    <header>StoryDZ Dashboard</header>
+    <header>
+        <div class="logo"><i class="fa-solid fa-book-open"></i> StoryDZ Pro</div>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+    </header>
 
-    <div class="container">
-        <div id="status-msg" class="status-msg"></div>
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('stories-tab', this)"><i class="fa-solid fa-list"></i> القصص</div>
+        <div class="tab" onclick="switchTab('ai-tab', this)"><i class="fa-solid fa-robot"></i> المساعد الذكي</div>
+    </div>
 
-        <div class="tabs">
-            <div class="tab active" onclick="switchTab('stories-tab', this)">📚 القصص</div>
-            <div class="tab" onclick="switchTab('ai-tab', this)">🤖 المساعد</div>
+    <div class="content">
+        
+        <!-- تبويب المساعد الذكي -->
+        <div id="ai-tab" class="card" style="display: none;">
+            <div class="card-title">
+                <span><i class="fa-solid fa-robot"></i> مساعد Gemini</span>
+                <button class="btn btn-outline" onclick="saveApiKey()" style="padding: 5px 10px; font-size: 12px;">حفظ المفتاح</button>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="gemini-api-key" placeholder="أدخل مفتاح Gemini API هنا (AIza...)" style="direction: ltr;">
+            </div>
+            <div class="chat-container">
+                <div class="chat-window" id="chat-window">
+                    <div class="chat-msg ai">مرحباً! أنا مساعدك. يمكنك طلب تحسين النص، أو كتابة قصة جديدة، وسأقوم بذلك فوراً.</div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" class="form-control" id="chat-input" placeholder="اكتب أمرك هنا... (مثال: حسّن الفقرة الأولى)">
+                    <button class="btn btn-primary" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
         </div>
 
-        <div id="ai-tab" class="card hidden">
-            <div class="card-title">مساعد Gemini</div>
-            <input type="password" class="api-input" id="gemini-api-key" placeholder="أدخل مفتاح Gemini API هنا (AIza...)">
-            <div class="chat-window" id="chat-window">
-                <div style="color: var(--text-muted);">جاهز للاستخدام. اطلب مني تعديل قصة أو إضافة أخرى.</div>
-            </div>
-            <div class="chat-input-wrapper">
-                <input type="text" class="chat-input" id="chat-input" placeholder="اكتب أمرك...">
-                <button class="btn btn-primary" onclick="sendMessage()">إرسال</button>
-            </div>
-        </div>
-
+        <!-- تبويب القصص -->
         <div id="stories-tab">
             <div class="card">
-                <div class="card-title">اختر قصة لتعديلها</div>
-                <select class="story-select" id="story-dropdown" onchange="loadStoryData()">
-                    <option value="">-- جارٍ البحث عن قصص HTML في GitHub... --</option>
+                <div class="card-title">اختر قصة</div>
+                <select class="form-control" id="story-dropdown" onchange="loadStoryData()" style="margin-bottom: 15px;">
+                    <option value="">-- جارٍ تحميل القصص من GitHub... --</option>
                 </select>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-primary" style="flex: 1;" onclick="resetForm()"><i class="fa-solid fa-plus"></i> قصة جديدة</button>
+                    <button class="btn btn-outline" style="flex: 1;" onclick="fetchStories()"><i class="fa-solid fa-rotate"></i> تحديث</button>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-title">بيانات القصة</div>
+                <div class="card-title"><i class="fa-solid fa-edit"></i> محرر المحتوى</div>
                 
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اللغة</label>
+                        <select class="form-control" id="story-lang">
+                            <option value="ar">العربية (ar)</option>
+                            <option value="en">الإنجليزية (en)</option>
+                            <option value="fr">الفرنسية (fr)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>التصنيف</label>
+                        <select class="form-control" id="story-category">
+                            <option value="prophets">أنبياء</option>
+                            <option value="scientists">علماء</option>
+                            <option value="football-stories">كرة قدم</option>
+                            <option value="civilizations">حضارات</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label>العنوان</label>
+                    <label>اسم الملف (الرابط بدون .html)</label>
+                    <input type="text" class="form-control" id="story-filename" placeholder="مثال: adam" style="direction: ltr;">
+                </div>
+
+                <div class="form-group">
+                    <label>عنوان القصة (H1)</label>
                     <input type="text" class="form-control" id="story-title" placeholder="عنوان القصة">
                 </div>
 
                 <div class="form-group">
-                    <label>وصف البحث (SEO)</label>
+                    <label>وصف البحث (Meta Description)</label>
                     <input type="text" class="form-control" id="story-desc" placeholder="وصف قصير يظهر في جوجل">
                 </div>
 
+                <!-- الصورة -->
                 <div class="form-group">
-                    <label>رابط صورة الغلاف</label>
-                    <input type="text" class="form-control" id="story-img-url" placeholder="https://..." oninput="previewImage()">
-                    <div class="preview-container" id="img-preview">لا توجد معاينة</div>
+                    <label>صورة الغلاف</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" class="form-control" id="story-img-url" placeholder="رابط الصورة أو ارفع صورة" oninput="previewImage()">
+                        <button class="btn btn-outline" onclick="document.getElementById('img-upload').click()"><i class="fa-solid fa-upload"></i></button>
+                        <input type="file" id="img-upload" style="display: none;" accept="image/*" onchange="uploadImageToGitHub(this)">
+                    </div>
+                    <div class="preview-box" id="img-preview">لا توجد صورة</div>
                 </div>
 
+                <!-- الفيديو -->
                 <div class="form-group">
                     <label>رابط الفيديو (YouTube/TikTok)</label>
                     <input type="text" class="form-control" id="story-video-url" placeholder="https://..." oninput="previewVideo()">
-                    <div class="preview-container" id="video-preview">لا توجد معاينة</div>
+                    <div class="preview-box" id="video-preview">لا يوجد فيديو</div>
                 </div>
 
+                <!-- المحرر المتقدم -->
                 <div class="form-group">
-                    <label>محتوى القصة (النص)</label>
-                    <textarea class="form-control" id="story-content" placeholder="اكتب القصة هنا..."></textarea>
+                    <label>محتوى القصة</label>
+                    <div class="editor-container">
+                        <div id="editor"></div>
+                    </div>
                 </div>
 
-                <button class="btn btn-success" style="width: 100%;" onclick="alert('حفظ ملفات HTML القديمة سيتم برمجته في الخطوة التالية.')">💾 حفظ التعديلات</button>
+                <button class="btn btn-success" style="width: 100%; padding: 15px; font-size: 18px;" id="save-btn" onclick="saveStoryToGitHub()">
+                    <i class="fa-solid fa-save"></i> حفظ التعديلات في GitHub
+                </button>
             </div>
         </div>
     </div>
 
-    <script>
-        // ==========================================
-        // 1. إعدادات GitHub API
-        // ==========================================
-        const GITHUB_TOKEN = "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"; 
-        const REPO_OWNER = "afri95759-del";
-        const REPO_NAME = "Storydz.com";
-        const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents`;
-        
-        let allStories = [];
+    <!-- رسالة التنبيه -->
+    <div id="toast" class="toast">تم الحفظ!</div>
 
-        // ==========================================
-        // 2. التبويبات
-        // ==========================================
-        function switchTab(tabId, el) {
-            document.getElementById('ai-tab').classList.add('hidden');
-            document.getElementById('stories-tab').classList.add('hidden');
-            document.getElementById(tabId).classList.remove('hidden');
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
-        }
-
-        function showStatus(msg, isError = false) {
-            const el = document.getElementById('status-msg');
-            el.className = `status-msg ${isError ? 'status-error' : 'status-success'}`;
-            el.innerText = msg;
-            setTimeout(() => el.className = 'status-msg', 5000);
-        }
-
-        // ==========================================
-        // 3. البحث الشامل عن قصص HTML
-        // ==========================================
-        async function fetchStories() {
-            const dropdown = document.getElementById('story-dropdown');
-            allStories = [];
-            
-            try {
-                // جلب محتويات المجلد الرئيسي (ar, en, fr)
-                const rootRes = await fetch(`${API_BASE}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
-                const rootDirs = await rootRes.json();
-
-                for (let dir of rootDirs) {
-                    // نبحث فقط في مجلدات اللغات
-                    if (dir.type === 'dir' && ['ar', 'en', 'fr'].includes(dir.name)) {
-                        
-                        // جلب المجلدات الفرعية (prophets, scientists, etc)
-                        const langRes = await fetch(`${API_BASE}/${dir.name}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
-                        const subDirs = await langRes.json();
-
-                        for (let subDir of subDirs) {
-                            if (subDir.type === 'dir') {
-                                // جلب ملفات HTML داخل كل تصنيف
-                                const filesRes = await fetch(`${API_BASE}/${dir.name}/${subDir.name}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
-                                const files = await filesRes.json();
-
-                                for (let file of files) {
-                                    if (file.name.endsWith('.html')) {
-                                        allStories.push({
-                                            name: file.name,
-                                            path: file.path,
-                                            sha: file.sha,
-                                            lang: dir.name,
-                                            category: subDir.name
-                                        });
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // ملء القائمة المنسدلة
-                dropdown.innerHTML = '<option value="">-- اختر قصة لتعديلها --</option>';
-                allStories.forEach((story, index) => {
-                    dropdown.innerHTML += `<option value="${index}">${story.name} (${story.lang}/${story.category})</option>`;
-                });
-                
-                showStatus(`تم العثور على ${allStories.length} قصة.`);
-
-            } catch (error) {
-                dropdown.innerHTML = `<option value="">خطأ: ${error.message}</option>`;
-            }
-        }
-
-        // ==========================================
-        // 4. تحميل بيانات القصة (استخراج النص من HTML)
-        // ==========================================
-        async function loadStoryData() {
-            const index = document.getElementById('story-dropdown').value;
-            if (index === "") return;
-            
-            const story = allStories[index];
-            
-            const res = await fetch(`${API_BASE}/${story.path}`, {
-                headers: { "Authorization": `token ${GITHUB_TOKEN}` }
-            });
-            const data = await res.json();
-            const content = decodeURIComponent(escape(atob(data.content)));
-            
-            // استخراج بيانات بسيطة من ملف HTML
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(content, "text/html");
-            
-            const title = doc.querySelector('title')?.innerText || '';
-            const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content') || '';
-            
-            // محاولة استخراج النص الأساسي (داخل div المحتوى أو body)
-            const bodyContent = doc.querySelector('.content')?.innerHTML || doc.querySelector('article')?.innerHTML || doc.body.innerHTML;
-
-            // ملء النموذج
-            document.getElementById('story-title').value = title;
-            document.getElementById('story-desc').value = desc;
-            document.getElementById('story-content').value = bodyContent;
-            
-            // محاولة إيجاد الصورة الأولى والفيديو في الصفحة
-            const imgUrl = doc.querySelector('img')?.getAttribute('src') || '';
-            const videoUrl = doc.querySelector('iframe')?.getAttribute('src') || '';
-            
-            document.getElementById('story-img-url').value = imgUrl;
-            document.getElementById('story-video-url').value = videoUrl;
-            
-            previewImage();
-            previewVideo();
-            
-            window.currentStory = story;
-        }
-
-        // ==========================================
-        // 5. المعاينة
-        // ==========================================
-        function previewImage() {
-            let url = document.getElementById('story-img-url').value;
-            const box = document.getElementById('img-preview');
-            if (url) {
-                if (url.includes('drive.google.com/file/d/')) {
-                    const id = url.split('/d/')[1].split('/')[0];
-                    url = `https://lh3.googleusercontent.com/d/${id}`;
-                }
-                box.innerHTML = `<img src="${url}" alt="Preview">`;
-            } else {
-                box.innerHTML = 'لا توجد معاينة';
-            }
-        }
-
-        function previewVideo() {
-            const url = document.getElementById('story-video-url').value;
-            const box = document.getElementById('video-preview');
-            if (url) {
-                if (url.includes('youtube.com') || url.includes('youtu.be')) {
-                    let videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
-                    if (videoId) videoId = videoId.split('&')[0];
-                    box.innerHTML = `<iframe width="100%" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
-                } else {
-                    box.innerHTML = `<p>فيديو TikTok (سيتم معالجته)</p>`;
-                }
-            } else {
-                box.innerHTML = 'لا توجد معاينة';
-            }
-        }
-
-        function sendMessage() {
-            const apiKey = document.getElementById('gemini-api-key').value;
-            const input = document.getElementById('chat-input');
-            if (!apiKey) { alert("الرجاء إدخال مفتاح Gemini API أولاً."); return; }
-            document.getElementById('chat-window').innerHTML += `<div style="margin-top:10px; color:var(--primary);"><b>أنت:</b> ${input.value}</div>`;
-            document.getElementById('chat-window').innerHTML += `<div style="margin-top:10px; color:var(--text-muted);"><b>المساعد:</b> سيتم تفعيل الردود في التحديث القادم.</div>`;
-            input.value = '';
-        }
-
-        window.onload = fetchStories;
-    </script>
+    <!-- مكتبات خارجية -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
