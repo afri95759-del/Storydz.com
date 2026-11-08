@@ -24,7 +24,6 @@
         .btn { padding: 12px 15px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-success { background: var(--success); color: white; }
-        .btn-success:hover { background: #059669; }
         
         .story-select { width: 100%; padding: 12px; border: 2px solid var(--primary); border-radius: 8px; font-size: 16px; margin-bottom: 15px; background: #eff6ff; }
         
@@ -51,7 +50,6 @@
     <header>StoryDZ Dashboard</header>
 
     <div class="container">
-        <!-- رسائل النجاح أو الخطأ -->
         <div id="status-msg" class="status-msg"></div>
 
         <div class="tabs">
@@ -75,28 +73,13 @@
             <div class="card">
                 <div class="card-title">اختر قصة لتعديلها</div>
                 <select class="story-select" id="story-dropdown" onchange="loadStoryData()">
-                    <option value="">-- جارٍ تحميل القصص من GitHub... --</option>
+                    <option value="">-- جارٍ البحث عن قصص HTML في GitHub... --</option>
                 </select>
-                <button class="btn btn-primary" style="width: 100%;" onclick="resetForm()">➕ إنشاء قصة جديدة</button>
             </div>
 
             <div class="card">
                 <div class="card-title">بيانات القصة</div>
                 
-                <div class="form-group">
-                    <label>اللغة</label>
-                    <select class="form-control" id="story-lang">
-                        <option value="ar">العربية (ar)</option>
-                        <option value="en">الإنجليزية (en)</option>
-                        <option value="fr">الفرنسية (fr)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>اسم الملف (الرابط) - بدون .md</label>
-                    <input type="text" class="form-control" id="story-filename" placeholder="مثال: adam" style="direction: ltr;">
-                </div>
-
                 <div class="form-group">
                     <label>العنوان</label>
                     <input type="text" class="form-control" id="story-title" placeholder="عنوان القصة">
@@ -110,36 +93,28 @@
                 <div class="form-group">
                     <label>رابط صورة الغلاف</label>
                     <input type="text" class="form-control" id="story-img-url" placeholder="https://..." oninput="previewImage()">
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label>وصف الصورة (Alt Text)</label>
-                        <input type="text" class="form-control" id="story-img-alt" placeholder="وصف الصورة">
-                    </div>
                     <div class="preview-container" id="img-preview">لا توجد معاينة</div>
                 </div>
 
                 <div class="form-group">
                     <label>رابط الفيديو (YouTube/TikTok)</label>
                     <input type="text" class="form-control" id="story-video-url" placeholder="https://..." oninput="previewVideo()">
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label>وصف الفيديو</label>
-                        <input type="text" class="form-control" id="story-video-alt" placeholder="وصف الفيديو">
-                    </div>
                     <div class="preview-container" id="video-preview">لا توجد معاينة</div>
                 </div>
 
                 <div class="form-group">
-                    <label>محتوى القصة</label>
+                    <label>محتوى القصة (النص)</label>
                     <textarea class="form-control" id="story-content" placeholder="اكتب القصة هنا..."></textarea>
                 </div>
 
-                <button class="btn btn-success" style="width: 100%;" onclick="saveStoryToGitHub()">💾 حفظ التعديلات في GitHub</button>
+                <button class="btn btn-success" style="width: 100%;" onclick="alert('حفظ ملفات HTML القديمة سيتم برمجته في الخطوة التالية.')">💾 حفظ التعديلات</button>
             </div>
         </div>
     </div>
 
     <script>
         // ==========================================
-        // 1. إعدادات GitHub API (تم وضع التوكن الخاص بك)
+        // 1. إعدادات GitHub API
         // ==========================================
         const GITHUB_TOKEN = "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"; 
         const REPO_OWNER = "afri95759-del";
@@ -147,7 +122,6 @@
         const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents`;
         
         let allStories = [];
-        let currentStorySha = null; // لحفظ معرف الملف الحالي لتحديثه
 
         // ==========================================
         // 2. التبويبات
@@ -168,41 +142,39 @@
         }
 
         // ==========================================
-        // 3. جلب القصص
+        // 3. البحث الشامل عن قصص HTML
         // ==========================================
         async function fetchStories() {
             const dropdown = document.getElementById('story-dropdown');
+            allStories = [];
+            
             try {
-                const response = await fetch(`${API_BASE}/content`, {
-                    headers: { "Authorization": `token ${GITHUB_TOKEN}` }
-                });
-                if (!response.ok) throw new Error("تأكد من التوكن أو اتصالك.");
-                
-                const folders = await response.json();
-                allStories = [];
+                // جلب محتويات المجلد الرئيسي (ar, en, fr)
+                const rootRes = await fetch(`${API_BASE}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
+                const rootDirs = await rootRes.json();
 
-                for (let folder of folders) {
-                    if (folder.type === 'dir') {
-                        const subRes = await fetch(`${API_BASE}/content/${folder.name}`, {
-                            headers: { "Authorization": `token ${GITHUB_TOKEN}` }
-                        });
-                        const subFolders = await subRes.json();
+                for (let dir of rootDirs) {
+                    // نبحث فقط في مجلدات اللغات
+                    if (dir.type === 'dir' && ['ar', 'en', 'fr'].includes(dir.name)) {
                         
-                        for (let sub of subFolders) {
-                            if (sub.type === 'dir') {
-                                const storyRes = await fetch(`${API_BASE}/content/${folder.name}/${sub.name}`, {
-                                    headers: { "Authorization": `token ${GITHUB_TOKEN}` }
-                                });
-                                const stories = await storyRes.json();
-                                
-                                for (let story of stories) {
-                                    if (story.name.endsWith('.md')) {
+                        // جلب المجلدات الفرعية (prophets, scientists, etc)
+                        const langRes = await fetch(`${API_BASE}/${dir.name}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
+                        const subDirs = await langRes.json();
+
+                        for (let subDir of subDirs) {
+                            if (subDir.type === 'dir') {
+                                // جلب ملفات HTML داخل كل تصنيف
+                                const filesRes = await fetch(`${API_BASE}/${dir.name}/${subDir.name}`, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
+                                const files = await filesRes.json();
+
+                                for (let file of files) {
+                                    if (file.name.endsWith('.html')) {
                                         allStories.push({
-                                            name: story.name,
-                                            path: story.path,
-                                            sha: story.sha,
-                                            lang: folder.name,
-                                            category: sub.name
+                                            name: file.name,
+                                            path: file.path,
+                                            sha: file.sha,
+                                            lang: dir.name,
+                                            category: subDir.name
                                         });
                                     }
                                 }
@@ -211,10 +183,13 @@
                     }
                 }
 
+                // ملء القائمة المنسدلة
                 dropdown.innerHTML = '<option value="">-- اختر قصة لتعديلها --</option>';
                 allStories.forEach((story, index) => {
                     dropdown.innerHTML += `<option value="${index}">${story.name} (${story.lang}/${story.category})</option>`;
                 });
+                
+                showStatus(`تم العثور على ${allStories.length} قصة.`);
 
             } catch (error) {
                 dropdown.innerHTML = `<option value="">خطأ: ${error.message}</option>`;
@@ -222,14 +197,13 @@
         }
 
         // ==========================================
-        // 4. تحميل بيانات القصة
+        // 4. تحميل بيانات القصة (استخراج النص من HTML)
         // ==========================================
         async function loadStoryData() {
             const index = document.getElementById('story-dropdown').value;
             if (index === "") return;
             
             const story = allStories[index];
-            currentStorySha = story.sha;
             
             const res = await fetch(`${API_BASE}/${story.path}`, {
                 headers: { "Authorization": `token ${GITHUB_TOKEN}` }
@@ -237,31 +211,32 @@
             const data = await res.json();
             const content = decodeURIComponent(escape(atob(data.content)));
             
-            const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            let frontmatter = {};
-            let body = content;
+            // استخراج بيانات بسيطة من ملف HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(content, "text/html");
+            
+            const title = doc.querySelector('title')?.innerText || '';
+            const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+            
+            // محاولة استخراج النص الأساسي (داخل div المحتوى أو body)
+            const bodyContent = doc.querySelector('.content')?.innerHTML || doc.querySelector('article')?.innerHTML || doc.body.innerHTML;
 
-            if (match) {
-                const yamlLines = match[1].split('\n');
-                yamlLines.forEach(line => {
-                    const [key, ...value] = line.split(':');
-                    if (key && value) frontmatter[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
-                });
-                body = match[2].trim();
-            }
-
-            document.getElementById('story-lang').value = story.lang;
-            document.getElementById('story-filename').value = story.name.replace('.md', '');
-            document.getElementById('story-title').value = frontmatter.title || '';
-            document.getElementById('story-desc').value = frontmatter.description || '';
-            document.getElementById('story-img-url').value = frontmatter.image || '';
-            document.getElementById('story-img-alt').value = frontmatter.image_alt || '';
-            document.getElementById('story-video-url').value = frontmatter.video || '';
-            document.getElementById('story-video-alt').value = frontmatter.video_alt || '';
-            document.getElementById('story-content').value = body;
+            // ملء النموذج
+            document.getElementById('story-title').value = title;
+            document.getElementById('story-desc').value = desc;
+            document.getElementById('story-content').value = bodyContent;
+            
+            // محاولة إيجاد الصورة الأولى والفيديو في الصفحة
+            const imgUrl = doc.querySelector('img')?.getAttribute('src') || '';
+            const videoUrl = doc.querySelector('iframe')?.getAttribute('src') || '';
+            
+            document.getElementById('story-img-url').value = imgUrl;
+            document.getElementById('story-video-url').value = videoUrl;
             
             previewImage();
             previewVideo();
+            
+            window.currentStory = story;
         }
 
         // ==========================================
@@ -297,95 +272,10 @@
             }
         }
 
-        // ==========================================
-        // 6. الحفظ في GitHub
-        // ==========================================
-        async function saveStoryToGitHub() {
-            const lang = document.getElementById('story-lang').value;
-            const filename = document.getElementById('story-filename').value.trim();
-            const title = document.getElementById('story-title').value;
-            const desc = document.getElementById('story-desc').value;
-            const imgUrl = document.getElementById('story-img-url').value;
-            const imgAlt = document.getElementById('story-img-alt').value;
-            const videoUrl = document.getElementById('story-video-url').value;
-            const videoAlt = document.getElementById('story-video-alt').value;
-            const content = document.getElementById('story-content').value;
-
-            if (!filename || !title || !content) {
-                showStatus("الرجاء إدخال اسم الملف، العنوان، والمحتوى على الأقل.", true);
-                return;
-            }
-
-            // بناء محتوى ملف Markdown
-            const markdownContent = `---
-title: "${title}"
-description: "${desc}"
-image: "${imgUrl}"
-image_alt: "${imgAlt}"
-video: "${videoUrl}"
-video_alt: "${videoAlt}"
----
-
-${content}`;
-
-            // تحويل النص إلى Base64
-            const base64Content = btoa(unescape(encodeURIComponent(markdownContent)));
-
-            // تحديد المسار (إذا كانت قصة جديدة، نضعها في التصنيف الافتراضي مثلاً prophets)
-            const path = `content/${lang}/prophets/${filename}.md`; 
-            
-            const body = {
-                message: `تحديث قصة: ${title}`,
-                content: base64Content,
-                sha: currentStorySha // إذا كان موجوداً، سيتم التحديث، وإلا سيتم إنشاء ملف جديد
-            };
-
-            try {
-                const res = await fetch(`${API_BASE}/${path}`, {
-                    method: 'PUT',
-                    headers: {
-                        "Authorization": `token ${GITHUB_TOKEN}`,
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (res.ok) {
-                    showStatus("تم حفظ القصة بنجاح في GitHub!");
-                    // إعادة جلب القصص لتحديث القائمة
-                    setTimeout(() => { fetchStories(); resetForm(); }, 1500);
-                } else {
-                    const err = await res.json();
-                    showStatus(`فشل الحفظ: ${err.message}`, true);
-                }
-            } catch (error) {
-                showStatus(`خطأ في الاتصال: ${error.message}`, true);
-            }
-        }
-
-        function resetForm() {
-            currentStorySha = null;
-            document.getElementById('story-dropdown').value = '';
-            document.getElementById('story-filename').value = '';
-            document.getElementById('story-title').value = '';
-            document.getElementById('story-desc').value = '';
-            document.getElementById('story-img-url').value = '';
-            document.getElementById('story-img-alt').value = '';
-            document.getElementById('story-video-url').value = '';
-            document.getElementById('story-video-alt').value = '';
-            document.getElementById('story-content').value = '';
-            document.getElementById('img-preview').innerHTML = 'لا توجد معاينة';
-            document.getElementById('video-preview').innerHTML = 'لا توجد معاينة';
-        }
-
-        // الدردشة (سنربطها بـ Gemini لاحقاً)
         function sendMessage() {
             const apiKey = document.getElementById('gemini-api-key').value;
             const input = document.getElementById('chat-input');
-            if (!apiKey) {
-                alert("الرجاء إدخال مفتاح Gemini API أولاً.");
-                return;
-            }
+            if (!apiKey) { alert("الرجاء إدخال مفتاح Gemini API أولاً."); return; }
             document.getElementById('chat-window').innerHTML += `<div style="margin-top:10px; color:var(--primary);"><b>أنت:</b> ${input.value}</div>`;
             document.getElementById('chat-window').innerHTML += `<div style="margin-top:10px; color:var(--text-muted);"><b>المساعد:</b> سيتم تفعيل الردود في التحديث القادم.</div>`;
             input.value = '';
